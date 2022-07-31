@@ -1,0 +1,597 @@
+
+\documentclass[notes=show]{beamer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{mathpazo}
+\usepackage{hyperref}
+\usepackage{multimedia}
+
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.50.0.2953}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%TCIDATA{Created=Saturday, July 23, 2022 16:41:09}
+%TCIDATA{LastRevised=Saturday, July 23, 2022 22:49:59}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="Other Documents\SW\Slides - Beamer">}
+%TCIDATA{CSTFile=beamer.cst}
+
+\newenvironment{stepenumerate}{\begin{enumerate}[<+->]}{\end{enumerate}}
+\newenvironment{stepitemize}{\begin{itemize}[<+->]}{\end{itemize} }
+\newenvironment{stepenumeratewithalert}{\begin{enumerate}[<+-| alert@+>]}{\end{enumerate}}
+\newenvironment{stepitemizewithalert}{\begin{itemize}[<+-| alert@+>]}{\end{itemize} }
+\usetheme{Madrid}
+\input{tcilatex}
+\begin{document}
+
+\title[Beamer presentations in \textsl{SWP\/}{} and \textsl{SW}]{Creating
+Beamer presentations in \textsl{Scientific WorkPlace\/}{} and \textsl{%
+Scientific Word}{}}
+\subtitle{Impressive slide presentations}
+\author[MSI Tech Support]{MacKichan Software Technical Support}
+\institute[Institute]{Delete or rename Institute field}
+\date[03/06]{March 2006}
+\maketitle
+
+\section{Motiva\c{c}\~{a}o}
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{Motiva\c{c}\~{a}o}
+
+\begin{itemize}
+\item Uma matriz \'{e} um grupo de vari\'{a}veis {}{}ou constantes, todas de
+mesmo tipo, referenciadas por um \'{u}nico nome;
+
+\item Um valor individual dentro do array \'{e} chamado de \textbf{array
+element};
+
+\item O elem. \'{e} identificado pelo nome do array junto com um subscrito
+apontando para o local espec\'{\i}fico dentro do array;
+
+\item O subscrito de uma matriz \'{e} do tipo INTEGER;
+
+\item Arrays podem ser ferramentas extremamente poderosas,nos permitindo
+aplicar o mesmo algoritmo repetidamente a muitos itens de dados diferentes
+com um simples loop DO;
+
+\item Arrays s\~{a}o obviamente uma maneira muito mais limpa e curta de
+trabalhar com opera\c{c}\~{o}es semelhantes e repetitivas.
+\end{itemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\section{Fundamentos sobre Arrays}
+
+\subsection{Declarando Arrays}
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{Declarando Arrays}
+
+\begin{stepitemize}
+\item Primeiro devemos declarar o tipo e n\'{u}mero de elementos de um array;
+
+\item A raz\~{a}o disso \'{e} informar ao compilar qual o tipo de dados que
+ser\~{a}o armazenados e o espa\c{c}o na mem\'{o}ria necess\'{a}rio;
+
+\item Declaramos uma matriz \textbf{real,} contendo \textbf{n} elementos, de
+nome \textbf{name\_array}:%
+\[
+\text{REAL, DIMENSION(n) :: name\_array} 
+\]%
+\textbf{n} deve ser um inteiro, ele tamb\'{e}m \'{e} chamado de \textbf{%
+extens\~{a}o da matrix}.
+\end{stepitemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\subsection{Array de constates}
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{Array de constantes}
+
+\begin{itemize}
+\item Podemos definir uma matriz de constantes;
+
+\item Delimitadores - construtores de arrays
+
+\item Os delimitadores em Fortra 90 s\~{a}o a (/ e /)%
+\[
+\text{(/ 1, 2 ,3 , 4 /)} 
+\]
+
+\item No Fortran 2003 os delimitadores s\~{a}o colchetes [ ]%
+\[
+\text{\lbrack\ 1, 2, 3, 4 ]} 
+\]
+
+\item Apesar dos colchetes serem um recurso trazido no Fortra 2003, o
+GFortran o traz ao compilar um .f90. Veja o \textbf{Exemplo 1}.
+\end{itemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\section{Trabalhando com arrays}
+
+\subsection{Opera\c{c}\~{o}es}
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{Trabalhando com arrays}
+
+\begin{itemize}
+\item Cada elemento de um array \'{e} uma \textbf{vari\'{a}vel} como
+qualquer outra;
+
+\item Um elemento de array pode ser utilizado em \textbf{qualquer lugar}
+onde uma vari\'{a}vel comum seria usada;
+
+\item Elementos de matriz podem ser inclu\'{\i}dos em express\~{o}es aritm%
+\'{e}ticas e l\'{o}gicas,
+
+\item Os resultados de uma express\~{a}o podem ser atribu\'{\i}dos a um
+elemento de matriz.
+
+\item Os elementos de uma lista come\c{c}am pelo \'{\i}ndice 1, n\~{a}o pelo
+0 como em outras linguagens. Vide \textbf{Exemplo 2}.
+
+\item Podemos alterar os valores dos elementos de uma lista. Veja o \textbf{%
+Exemplo 3}.
+\end{itemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\subsection{Pausa para trabalhar com a formata\c{c}\~{a}o}
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{Pausa para trabalhar com a formata\c{c}\~{a}o}
+
+\begin{itemize}
+\item Podemos formatar a sa\'{\i}da dos dados, uma das formas de se fazer
+isso \'{e} substituindo um n\'{u}mero no caracter correspondente a formata%
+\c{c}\~{a}o.
+
+\item No caso da declara\c{c}\~{a}o PRINT%
+\begin{eqnarray*}
+\text{PRINT *, \ \ \ } &\rightarrow &\text{ \ \ \ \ PRINT 10,*} \\
+&\rightarrow &\text{ \ \ \ \ 10 FORMAT(comandos de formata\c{c}\~{a}o)}
+\end{eqnarray*}
+
+\item No caso do READ E WRITE ser\'{a} no segundo asterisco:%
+\begin{eqnarray*}
+&&\text{READ(*,10)} \\
+&&\text{WRITE(*,20)} \\
+&&\text{10 FORMAT (atributos)} \\
+&&\text{20 FORMAT (atributos)}
+\end{eqnarray*}
+\end{itemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{C\'{o}digos de formata\c{c}\~{a}o}
+
+\begin{itemize}
+\item C\'{o}digos de formata\c{c}\~{a}o:
+
+\begin{itemize}
+\item A -\TEXTsymbol{>} string de texto
+
+\item D -\TEXTsymbol{>} N%
+%TCIMACRO{\U{ba} }%
+%BeginExpansion
+${{}^o}$
+%EndExpansion
+de precis\~{a}o dupla, nota\c{c}\~{a}o exponencial
+
+\item E -\TEXTsymbol{>} N\'{u}meros reais, nota\c{c}\~{a}o exponencial
+
+\item F -\TEXTsymbol{>} N\'{u}meros reais, formato de ponto fixo
+
+\item I \ -\TEXTsymbol{>} N\'{u}mero inteiro
+
+\item X -\TEXTsymbol{>} Salto horizontal (espa\c{c}o em branco)
+
+\item / \ -\TEXTsymbol{>} Salto vertival (quebra de linha).
+\end{itemize}
+
+\item Os c\'{o}digos D, E e F possuem a forma geral D\textit{w.d}, onde 
+\textit{w}=width (largura do campo) e \textit{d}=digits (n%
+%TCIMACRO{\U{ba} }%
+%BeginExpansion
+${{}^o}$
+%EndExpansion
+de d\'{\i}gitos significativos).
+
+\item Veja o \textbf{Exemplo 4 }e \textbf{5}.
+\end{itemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\subsection{Loop DO impl\'{\i}cito}
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{Loop DO impl\'{\i}cito}
+
+\begin{stepitemizewithalert}
+\item O loop DO impl\'{\i}cito tamb\'{e}m \'{e} permitido em instru\c{c}\~{o}%
+es de i/o; 
+
+\item Ele vai permitir que uma lista de argumentos seja escrita muitas vezes
+em fun\c{c}\~{a}o de uma vari\'{a}vel de \'{\i}ndice;
+
+\item Cada argumento na lista de argumentos \'{e} escrito uma vez para cada
+valor da vari\'{a}vel de \'{\i}ndice no loop DO impl\'{\i}cito; 
+
+\item A estrutura geral para esse loop impl\'{\i}cito \'{e} a seguinte:%
+\[
+\text{WRITE (unit, format) (name\_list1,  index=istart, iend, incr)}
+\]
+
+\item Onde name\_list1s\~{a}o os valores a serem escritos/lidos;
+
+\item index devem ser inteiros;
+
+\item Veja o \textbf{Exemplo 6};
+
+\item Tamb\'{e}m podemos fazer loop impl\'{\i}citos aninhados (um loop
+dentro doutro). Veja o \textbf{Exemplo 7} e \textbf{8}.
+\end{stepitemizewithalert}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\subsection{Adding transitions}
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{Adding transitions}
+
+\begin{stepitemize}
+\item Beamer enhances presentations with dynamic transitions between frames.
+
+\item Types of transitions:
+
+\begin{stepitemize}
+\item Horizontal and vertical blinds
+
+\item Box in and box out
+
+\item Dissolve, glitter, and wipe
+
+\item Split horizontal in and out
+
+\item Split vertical in and out
+\end{stepitemize}
+
+\item Apply fragments to create dynamic transitions.
+
+\item Each fragment controls the transition from the frame that precedes it
+to the frame that contains it.
+
+\item This presentation uses the Box Out transition.
+\end{stepitemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\subsection{Using columns}
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{Using columns}
+
+Beamer supports multiple columns of text.
+
+%TCIMACRO{\TeXButton{BeginColumns}{\begin{columns}[5cm]}}%
+%BeginExpansion
+\begin{columns}[5cm]%
+%EndExpansion
+%TCIMACRO{\TeXButton{Column}{\column{5cm}}}%
+%BeginExpansion
+\column{5cm}%
+%EndExpansion
+
+\begin{stepitemizewithalert}
+\item To begin columns, apply the BeginColumns fragment.
+
+\item Revise the fragment to set the column width.
+
+\item The default fragment uses a column width of 5 cm.
+\end{stepitemizewithalert}
+
+%TCIMACRO{\TeXButton{Column}{\column{5cm}}}%
+%BeginExpansion
+\column{5cm}%
+%EndExpansion
+
+\begin{stepitemizewithalert}
+\item To begin later columns, apply and revise the Column fragment.
+
+\item Columns can contain inline graphics or even movies.
+
+\item To end the last column, apply the EndColumns fragment.
+\end{stepitemizewithalert}
+
+%TCIMACRO{\TeXButton{EndColumns}{\end{columns}}}%
+%BeginExpansion
+\end{columns}%
+%EndExpansion
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\subsection{Working with color}
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{Working with color}
+
+\begin{itemize}
+\item Beamer 'color themes' define the use of color in a presentation.
+
+\item This presentation uses the default color theme.
+
+\item To use a different color theme, add the command \texttt{\TEXTsymbol{%
+\backslash}usecolortheme\{colorthemename\}} to the preamble of your
+document, replacing any existing \texttt{\TEXTsymbol{\backslash}usecolortheme%
+} command.
+\end{itemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\subsection{Working with fonts}
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{Working with fonts}
+
+\begin{itemize}
+\item Beamer 'font themes' define the use of fonts in a presentation.
+
+\item This presentation uses the default font scheme.
+
+\item To use a different font theme, add the command \texttt{\TEXTsymbol{%
+\backslash}usefonttheme\{fontthemename\}} to the preamble of your document,
+replacing any existing \texttt{\TEXTsymbol{\backslash}usefonttheme} command.
+\end{itemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\subsection{Adding graphics and animations}
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{Adding graphics}
+
+\begin{itemize}
+\item Frames can contain graphics and animations.
+
+\item Columns provide support for laying out graphics and text.
+
+\item See examples in SWSamples/PackageSample-beamer.tex in your program
+installation.
+\end{itemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\subsection{Setting class options}
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{Setting class options}
+
+Use class options to
+
+\begin{itemize}
+\item Set the base font size for the presentation.
+
+\item Set text alignment.
+
+\item Set equation numbering.
+
+\item Set print quality.
+
+\item Format displayed equations.
+
+\item Create a presentation, handout, or set of transparencies.
+
+\item Hide or display notes.
+\end{itemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{Setting class options}
+
+\QTR{framesubtitle}{Notes}
+
+\note{Here is a Beamer note.}
+
+\begin{itemize}
+\item This shell is originally supplied with the notes class option set to
+Show.
+
+\item This frame contains a note so that you can test the notes options.
+
+\item To see the note, scroll to the next frame.
+\end{itemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\subsection{Learn more about Beamer}
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{Learn more about Beamer}
+
+\begin{itemize}
+\item This shell and the associated fragments provide basic support for
+Beamer in \textsl{SWP }and \textsl{SW}.
+
+\item The current support is a beta version.
+
+\item To learn more about Beamer, see SWSamples/PackageSample-beamer.tex in
+your program installation.
+
+\item For complete information, read the BeamerUserGuide.pdf manual provided
+with this shell.
+
+\item For support, contact \textbf{support@mackichan.com}.
+\end{itemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\end{document}

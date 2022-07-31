@@ -1,0 +1,540 @@
+
+\documentclass[notes=show]{beamer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{mathpazo}
+\usepackage{hyperref}
+\usepackage{multimedia}
+
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.50.0.2953}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%TCIDATA{Created=Monday, July 18, 2022 22:42:16}
+%TCIDATA{LastRevised=Wednesday, July 20, 2022 18:40:48}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="Other Documents\SW\Slides - Beamer">}
+%TCIDATA{CSTFile=beamer.cst}
+
+\newenvironment{stepenumerate}{\begin{enumerate}[<+->]}{\end{enumerate}}
+\newenvironment{stepitemize}{\begin{itemize}[<+->]}{\end{itemize} }
+\newenvironment{stepenumeratewithalert}{\begin{enumerate}[<+-| alert@+>]}{\end{enumerate}}
+\newenvironment{stepitemizewithalert}{\begin{itemize}[<+-| alert@+>]}{\end{itemize} }
+\usetheme{Madrid}
+\input{tcilatex}
+\begin{document}
+
+\title[Beamer presentations in \textsl{SWP\/}{} and \textsl{SW}]{Creating
+Beamer presentations in \textsl{Scientific WorkPlace\/}{} and \textsl{%
+Scientific Word}{}}
+\subtitle{Impressive slide presentations}
+\author[MSI Tech Support]{MacKichan Software Technical Support}
+\institute[Institute]{Delete or rename Institute field}
+\date[03/06]{March 2006}
+\maketitle
+
+\section{Motiva\c{c}\~{a}o}
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{Motiva\c{c}\~{a}o}
+
+\begin{itemize}
+\item Situa\c{c}\~{a}o onde apenas dados s\~{a}o fornecidos;
+
+\item \'{A}reas como a astrof\'{\i}sica recebem dados dos observat\'{o}rios;
+
+\item \'{A}reas como a astrof\'{\i}sica recebem dados dos observat\'{o}rios;
+
+\item Ent\~{a}o como trabalhos com arquivos de dados de terceiros?
+
+\item Como calcular a derivada num\'{e}rica sem um fun\c{c}\~{a}o
+previamente conhecida?
+\end{itemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\section{O Problema}
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{O Problema}
+
+\begin{itemize}
+\item Vamos tomar como base o exemplo apresentado no livro Elementary
+Mechanics Using Python, Ander Malthe-Sorensse;\FRAME{fhF}{2.0678in}{2.2675in%
+}{0pt}{}{}{fig4-5.png}{\special{language "Scientific Word";type
+"GRAPHIC";maintain-aspect-ratio TRUE;display "USEDEF";valid_file "F";width
+2.0678in;height 2.2675in;depth 0pt;original-width 4.9061in;original-height
+5.3852in;cropleft "0";croptop "1";cropright "1";cropbottom "0";filename
+'fig4-5.png';file-properties "XNPEU";}}
+
+\item Onde uma bola de t\^{e}nis \'{e} solta de uma altura de
+aproximadamente 1,5m a partir do repouso;
+
+\item Vamos primeiramente fazer um plot destes dados;
+\end{itemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\subsection{O desafio}
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{O Desafio}
+
+\begin{itemize}
+\item Nosso interesse \'{e} a partir destes dados, tirar informa\c{c}\~{o}es
+da f\'{\i}sica do fen\^{o}meno/experimento;
+
+\item Come\c{c}amos descrevendo o movimento;
+
+\item Definimos o deslocamento $\Delta x(t_{0})$ no intervalo de $t=t_{0}$ a 
+$t=t_{0}+\Delta t=t_{1}$ como:%
+\[
+\Delta x(t_{0})=x(t_{0}+\Delta t)-x(t_{0})=x(t_{1})-x(t_{0})
+\]
+
+\item A quest\~{a}o agora \'{e} determinar o qu\~{a}o r\'{a}pido o objeto
+cai, mas n\~{a}o podemos utilizar apenas o deslocamento;
+
+\item O motivo disso \'{e} que os deslocamentos se tornam menores a medida
+que diminu\'{\i}mos o intervalo de tempo;
+\end{itemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\subsection{Definindo a velocidade}
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{Definindo a velocidade}
+
+\begin{itemize}
+\item Ent\~{a}o definimos a velocidade m\'{e}dia por:%
+\[
+v_{m}(t_{1})=\frac{\Delta x}{\Delta t}=\frac{x(t_{0}+\Delta t)-x(t_{0})}{%
+\Delta t}=\frac{x(t_{1})-x(t_{0})}{\Delta t}.
+\]
+
+\item E por conseguinte, definimos a velocidade instant\^{a}nea:%
+\[
+v=\lim_{\Delta t\rightarrow 0}\frac{x(t_{0}+\Delta t)-x(t_{0})}{\Delta t}=%
+\frac{dx}{dt}
+\]
+
+\item Vamos agora calcular a velocidade m\'{e}dia a partir dos dados
+fornecidos.
+\end{itemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\section{Arquivo de dados}
+
+\subsection{Defini\c{c}\~{a}o}
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{Arquivos de dados}
+
+\begin{itemize}
+\item Quando estivemos trabalhando com um grande volume de dados, devemos
+optar pelo uso de arquivo de dados em detrimento a imprimir os valores na
+tela;
+
+\item O arquivo de dados \'{e} armazenada na mem\'{o}ria secund\'{a}ria (a
+mem\'{o}ria RAM \'{e} prim\'{a}ria);
+
+\item A mem\'{o}ria secund\'{a}ria \'{e} mais lenta que a mem\'{o}ria
+principal do computador, mas ainda assim, permite acesso r\'{a}pido aos
+dados.
+
+\item Nos prim\'{o}rdios da computa\c{c}\~{a}o o dispositivo de
+armazenamento secund\'{a}rio eram as fitas magn\'{e}ticas;
+
+\item Estas fitas magn\'{e}ticas armazenavam dados de forma semelhante as
+fitas cassete;
+
+\item Elas eram lidas de forma sequencial, sem a possibilidade de saltar a
+leitura para outro ponto;
+
+\item Acesso sequencial vs acesso restrito;
+
+\item Por raz\~{o}es hist\'{o}ria o Fortran trabalha com acesso sequencial.
+\end{itemize}
+
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{Unidade i/o}
+
+\begin{itemize}
+\item A unidade de input/output \'{e} as vezes chamada de unidade l\'{o}gica
+ou simplesmente unidade;
+
+\item E corresponde ao primeiro asterisco de WRITE(*,*) ou READ(*,*);
+
+\item O asterisco corresponder\'{a} a unidade padr\~{a}o de escrita/leitura;
+
+\item O n\'{u}mero correspondente a unidade dever\'{a} ser um inteiro;
+
+\item Existem v\'{a}rias instru\c{c}\~{o}es Fortran para manipular a
+leitura/grava\c{c}\~{a}o dos dados nestes arquivos de dados;
+\end{itemize}
+
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\subsection{Declara\c{c}\~{o}es de i/o}
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{Declara\c{c}\~{o}es de i/o}
+
+\begin{eqnarray*}
+\text{Declara\c{c}\~{a}o i/o} &\rightarrow &\text{Descri\c{c}\~{a}o} \\
+\text{OPEN} &\rightarrow &\text{Associa um arquivo com um n%
+%TCIMACRO{\U{ba} }%
+%BeginExpansion
+${{}^o}$
+%EndExpansion
+espec\'{\i}fico de unidadede} \\
+\text{CLOSE} &\rightarrow &\text{Finaliza a associa\c{c}\~{a}o de um arquivo
+com um n%
+%TCIMACRO{\U{ba} }%
+%BeginExpansion
+${{}^o}$
+%EndExpansion
+de unidade} \\
+\text{READ} &\rightarrow &\text{L\^{e} dados de uma unidade} \\
+\text{WRITE} &\rightarrow &\text{Escreve dados numa unidade} \\
+\text{REWIND} &\rightarrow &\text{Move para o in\'{\i}cio de um arquivo de
+dados} \\
+\text{BACKSPACE} &\rightarrow &\text{Volta um registro de um arquivo de dados%
+}
+\end{eqnarray*}
+
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\subsection{Atributos da declara\c{c}\~{a}o OPEN}
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{A Declara\c{c}\~{a}o OPEN}
+
+\begin{itemize}
+\item A declara\c{c}\~{a}o OPEN (lista\_argumentos) possui diversos
+atributos dispon\'{\i}veis, que ser\~{a}o acessados atrav\'{e}s da lista de
+argumentos;
+
+\item O primeiro destes atributos especifica a unidade, sendo obrigat\'{o}%
+rio, o segundo designa um nome do arquivo de dados, apesar de n\~{a}o ser
+obrigat\'{o}rio \'{e} altamente recomendado, os demais especificar\~{a}o
+como se dar\'{a} a leitura. S\~{a}o eles;
+
+\item UNIT: indica o n\'{u}mero da unidade ao qual associar o arquivo de
+dados, aceitando apenas valores inteiros, da forma%
+\[
+\text{UNIT=numero\_inteiro} 
+\]
+
+\item FILE: especifica o nome do arquivo a ser aberto, aceitando valores do
+tipo character, escrevemos da seguinte forma:%
+\[
+\text{FILE="nome\_do\_arquivo"} 
+\]
+\end{itemize}
+
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\begin{itemize}
+\item STATUS: define o status do arquivo a ser aberto, aceitando valores do
+tipo character previamente estabelecidos, tal que,%
+\[
+\text{STATUS=expressao\_status} 
+\]%
+onde expressao\_status poder\'{a} assumir os valores:
+
+\item 'OLD': especifica que o arquivo a ser aberta j\'{a} existe;
+
+\item 'NEW': especifica que o arquivo que ser\'{a} aberto ser\'{a}
+criado/preenchido naquele momento, este \'{e} o padr\~{a}o;
+
+\item 'REPLACE': se o arquivo j\'{a} existir ele substituiu, caso n\~{a}o
+exista ele cria um novo;
+
+\item 'SCRATCH': rascunho, sem nome de arquivo, sendo de leitura e escrita;
+
+\item 'UNKNOWN':
+\end{itemize}
+
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\begin{itemize}
+\item ACTION:Especifica a a\c{c}\~{a}o a ser tomada ao abrir o arquivo,
+apenas leitura, apenas escrita, ou ent\~{a}o leitura e escrita (padr\~{a}o),
+ele aceitar\'{a} valores do tipo character pr\'{e}-estabelecidos,na forma;%
+\[
+\text{ACTION=expressao\_action}
+\]%
+expressao\_action poder\'{a} assumir apenas os seguintes valores: 'READ',
+'WRITE' ou ent\~{a}o 'READWRITE' (padr\~{a}o);
+
+\item IOSTAT: Muito importante para sinalizar erros. Se a abertura do
+arquivo for conclu\'{\i}da com \^{e}xito, IOSTAT retornar\'{a} um 0, caso
+haja algum erro retornar\'{a} um inteiro diferente de zero.
+
+\item Obs: Depois que o arquivo \'{e} fechado, a unidade de i/o que estava
+associada a ele fica livre para ser reatribu\'{\i}do a qualquer outro
+arquivo em uma nova instru\c{c}\~{a}o 0PEN.
+\end{itemize}
+
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{A cl\'{a}usula IOSTAT}
+
+\begin{itemize}
+\item Podemos utilizar a cl\'{a}usula IOSTAT tamb\'{e}m em declara\c{c}\~{o}%
+es READ;
+
+\item Se a leitura for bem sucedida, IOSTAT retornar\'{a} zero;
+
+\item Caso haja um errro, retornar\'{a} um inteiro positivo;
+
+\item Caso o final do arquivo seja atingido, IOSTAT retornar\'{a} um inteiro
+negativo%
+%TCIMACRO{%
+%\TeXButton{TeX field}{\footnote{Apesar de existirem outras formas de fazer isso}}}%
+%BeginExpansion
+\footnote{Apesar de existirem outras formas de fazer isso}%
+%EndExpansion
+;
+
+\item No FORTRAN 2003 foi inclu\'{\i}do o IOMSG, que trar\'{a} explicar\'{a}
+o porqu\^{e} do erro;
+
+\item O programa ser\'{a} abortado caso a declara\c{c}\~{a}o READ n\~{a}o
+tenha o atributo IOSTAT;
+\end{itemize}
+
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{Fluxograma}
+
+\FRAME{fhF}{2.5746in}{2.6783in}{0pt}{}{}{diagrama.png}{\special{language
+"Scientific Word";type "GRAPHIC";maintain-aspect-ratio TRUE;display
+"USEDEF";valid_file "F";width 2.5746in;height 2.6783in;depth
+0pt;original-width 5.6662in;original-height 5.8954in;cropleft "0";croptop
+"1";cropright "1";cropbottom "0";filename 'diagrama.png';file-properties
+"XNPEU";}}
+
+Fonte: Stephen Chapman, Fortran 95,2003 for scientists and engineers (2007)
+
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\section{Retornando para a cinem\'{a}tica}
+
+\subsection{Definindo a acelera\c{c}\~{a}o}
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{Definindo a acelera\c{c}\~{a}o}
+
+\begin{itemize}
+\item Analogamente ao que fizemos no caso da velocidade m\'{e}dia, definimos
+a acelera\c{c}\~{a}o m\'{e}dia como o qu\~{a}o r\'{a}pido a velocidade muda,
+escrevemos ent\~{a}o,%
+\[
+a_{m}(t_{1})=\frac{\Delta v}{\Delta t}=\frac{v(t_{0}+\Delta t)-v(t_{0})}{%
+\Delta t}=\frac{v(t_{1})-v(t_{0})}{\Delta t},
+\]
+
+\item E por conseguinte, definimos a acelera\c{c}\~{a}o instant\^{a}nea:%
+\[
+a=\lim_{\Delta t\rightarrow 0}\frac{\Delta v}{\Delta t}=\frac{dx}{dt}.
+\]
+
+\item Dada a natureza do problema, modelamos eles como%
+\[
+y\left( t\right) =y_{0}+v_{0}t+\frac{1}{2}gt^{2},
+\]
+
+\item cuja equa\c{c}\~{a}o para a velocidade ser\'{a}%
+\[
+v\left( t\right) =v_{0}+gt,
+\]
+
+\item com acelera\c{c}\~{a}o igual a%
+\[
+a=g=9,81m/s^{2}\text{.}
+\]
+\end{itemize}
+
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{Esbo\c{c}ando o algoritmo}
+
+\begin{itemize}
+\item Devemos transformar o desenvolvimento te\'{o}rico feito anteriormente
+em c\'{o}digo, ent\~{a}o definimos a velocidade m\'{e}dia num\'{e}rica como:%
+\[
+\bar{v}_{i}=\frac{y_{i}-y_{i-1}}{t_{i}-t_{i-1}}=\frac{y_{i}-y_{i-1}}{\Delta t%
+},
+\]
+
+\item e a acelera\c{c}\~{a}o m\'{e}dia num\'{e}rica%
+\[
+\bar{a}=\frac{\bar{v}_{i}-\bar{v}_{i-1}}{t_{i}-t_{i-1}}=\frac{\Delta \bar{v}%
+}{\Delta t}
+\]
+\end{itemize}
+
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\subsection{Derivada num\'{e}rica de dados}
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{Derivada Num\'{e}rica}
+
+\begin{itemize}
+\item Devemos nos recordar que n\~{a}o conhecemos $y(t)$ para todos os
+valores de $t$.
+
+\item mas apenas os valores que foram medidos de $y(t_{i})$.
+
+\item N\~{a}o podemos encontrar uma express\~{a}o \textbf{anal\'{\i}tica
+exata} para a derivada de $y(t)$.
+
+\item Mas podemos aproximar a velocidade instant\^{a}nea da velocidade m\'{e}%
+dia, de $t_{i-1}$ a $t_{i}$:%
+\[
+\bar{v}_{i}\left( t_{i}\right) =\frac{y\left( t_{i}+\Delta t\right) -y\left(
+t_{i}\right) }{\Delta t}\simeq v\left( t_{i}\right) =\frac{dy}{dt}.
+\]
+
+\item Adotamos o mesmo procedimento para a acelera\c{c}\~{a}o:%
+\[
+\bar{a}_{i}\left( t_{i}\right) =\frac{v\left( t_{i}+\Delta t\right) -v\left(
+t_{i}\right) }{\Delta t}\simeq a\left( t_{i}\right) =\frac{dv}{dt}.
+\]
+\end{itemize}
+
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\end{document}
