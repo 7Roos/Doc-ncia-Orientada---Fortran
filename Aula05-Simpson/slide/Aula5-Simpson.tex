@@ -1,0 +1,506 @@
+
+\documentclass[xcolor=table]{beamer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{mathpazo}
+\usepackage{hyperref}
+\usepackage{multimedia}
+\usepackage[brazilian]{babel}
+\usepackage{graphicx}
+%Tabela estilizada
+\definecolor{Maroon}{cmyk}{0,0.87,0.68,0.32}
+\setlength{\arrayrulewidth}{0.9mm}
+\setlength{\tabcolsep}{9pt}
+\renewcommand{\arraystretch}{1.8}
+
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.50.0.2953}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%TCIDATA{Created=Tuesday, July 26, 2022 00:16:25}
+%TCIDATA{LastRevised=Wednesday, July 27, 2022 20:01:17}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="Other Documents\SW\Slides - Beamer">}
+%TCIDATA{CSTFile=beamer.cst}
+
+\newenvironment{stepenumerate}{\begin{enumerate}[<+->]}{\end{enumerate}}
+\newenvironment{stepitemize}{\begin{itemize}[<+->]}{\end{itemize} }
+\newenvironment{stepenumeratewithalert}{\begin{enumerate}[<+-| alert@+>]}{\end{enumerate}}
+\newenvironment{stepitemizewithalert}{\begin{itemize}[<+-| alert@+>]}{\end{itemize} }
+\usetheme{Madrid}
+\input{tcilatex}
+\begin{document}
+\title[Simpson 1/3]{Técnicas de integração}
+\subtitle{Método de Simpson 1/3}
+\author[Roos]{Matheus Roos}
+\institute[UFSM]{Universidade Federal de Santa Maria}
+\date{\today}
+\maketitle
+
+\begin{frame}
+	\tableofcontents
+\end{frame}
+
+\section{M\'{e}todo fechado de Newton-Cotes}
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\frametitle{Defini\c{c}\~{a}o de M\'{e}todo fechado de Newton-Cotes}
+
+\begin{itemize}
+\item Defini\c{c}\~{a}o: aproximar $f$ entre $-h$ e $-h$ por uma fun\c{c}%
+\~{a}o que possa ser integrada exatamente.
+
+\item Supomos ent\~{a}o que conhecemos $f$ em todos os pontos de uma rede
+igualmente espa\c{c}ada, assim%
+\[
+f_{n}=f\left( x_{n}\right) \text{; \ \ \ \ \ \ \ }x_{n}=nh\text{ \ \ \ }%
+\left( n=0,\pm 1,\pm 2,...\right) . 
+\]
+
+\item Utilizando a aproxima\c{c}\~{a}o em s\'{e}rie de Taylor para $f$%
+\begin{eqnarray*}
+f\left( x\right)  &\approx &\sum_{n=0}^{\infty }\frac{\left( x-x_{0}\right)
+^{n}}{n!}\left[ \frac{d^{n}f(x)}{dx^{n}}\right] _{x=x_{0}} \\
+&=&f\left( x_{0}\right) +\left( x-x_{0}\right) \left( \frac{df\left(
+x\right) }{dx}\right) _{x=x_{0}}+O\left( \left( x-x_{0}\right) ^{2}\right) .
+\end{eqnarray*}
+
+\item Avaliando na vizinhan\c{c}a de $x_{0}=0$%
+\[
+f\left( x\right) \approx f_{0}+xf^{\prime }+\frac{x^{2}}{2!}f^{\prime \prime
+}+\frac{x^{3}}{3!}f^{\prime \prime \prime }+\frac{x^{4}}{4!}f^{\left(
+iv\right) }...
+\]
+\end{itemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\frametitle{Graficamente}
+
+\begin{itemize}
+\item Podemos ent\~{a}o definir%
+\[
+f_{\pm 1}=f\left( x=\pm h\right) \approx f_{0}\pm hf^{\prime }+\frac{h^{2}}{%
+2!}f^{\prime \prime }\pm \frac{h^{3}}{3!}f^{\prime \prime \prime }+O\left(
+h^{4}\right) 
+\]
+\end{itemize}
+\begin{figure}
+	\includegraphics[scale=.16]{lista4_figurediferencafinita.png}
+	\caption{Figura inspirada de Computational Physics (Steve K.) e \textit{tex} adaptado de Henri Menke.}
+\end{figure}
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\section{Partindo dos m\'{e}todos j\'{a} conhecidos}
+
+\subsection{Regra dos ret\^{a}ngulos}
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\frametitle{Regra dos ret\^{a}ngulos}
+
+\begin{stepitemize}
+\item Come\c{c}amos supondo que $f$ possa ser aproximada por uma constante
+nos subintervalos de tamanho $h$, vide figura de exemplo.%
+\[
+f\left( x\right) \approx f\left( x_{0}\right) +\mathcal{O}\left( x\right)
+=f_{0}+\mathcal{O}\left( x\right) 
+\]
+
+\item Ent\~{a}o devemos integrar, neste caso, no intervalo entre $0$ e $h$:%
+\[
+\int_{0}^{h}f\left( x\right) dx=\int_{x_{0}}^{x_{1}}f\left( x\right) dx ,
+\]
+
+\item substitu\'{\i}mos a aproxima\c{c}\~{a}o,%
+\[
+\int_{0}^{h}f\left( x\right) dx\approx \int_{0}^{h}\left[ f_{0}+\mathcal{O}\left(
+x\right) \right] dx ,
+\]
+
+\item resultando em%
+\begin{equation}
+\int_{0}^{h}f\left( x\right) dx\approx hf_{0}+\mathcal{O}\left( h^{2}\right) .
+\label{eq.retangulo}
+\end{equation}
+\end{stepitemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\frametitle{Desenvolvendo a f\'{o}rmula num\'{e}rica}
+
+\begin{stepitemize}
+\item Para implementarmos computacionalmente a integra\c{c}\~{a}o atrav\'{e}%
+s deste m\'{e}todo, devemos antes, submeter a f\'{o}rmula anterior no
+internalo $[a,b]$ a equa\c{c}\~{a}o:%
+\[
+\int_{a}^{b}f\left( x\right) dx=\int_{a}^{a+h}f\left( x\right)
+dx+\int_{a+h}^{a+2h}f\left( x\right) dx+...+\int_{b-h}^{b}f\left( x\right)
+dx.
+\]
+
+\item Ent\~{a}o utilizamos a Eq.(\ref{eq.retangulo})%
+\begin{eqnarray*}
+	\int_{a}^{b}f\left( x\right) dx&=hf\left( a\right) +hf\left( a+h\right)
+	+hf\left( a+2h\right) \\
+	&+...+hf\left( b-h\right) + \mathcal{O}\left( h^{2}\right) ,
+\end{eqnarray*}
+ 
+
+\item ou ent\~{a}o,%
+\[
+\int_{a}^{b}f\left( x\right) dx=h\sum_{i=1}^{n-1}f\left( x_{i}\right) + \mathcal{O}\left( h^{2}\right) . 
+\]
+
+\item Onde $x_{i}=x_{0}+i\times h$.
+\end{stepitemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\subsection{Regra dos trap\'{e}zios}
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\frametitle{Regra dos trap\'{e}zios}
+
+\begin{stepitemize}
+\item Agora supomos que $f$ possa ser aproximada por uma reta nos
+subintervalos $[-h,h]$%
+\[
+f\left( x\right) \approx f_{0}+xf^{\prime }+\mathcal{O}\left( x^{2}\right) . 
+\]
+
+\item Ent\~{a}o integramos no intervalo entre $-h$ e $h$, dividindo o
+intervalo de integra\c{c}\~{a}o :%
+\[
+\int_{-h}^{h}f\left( x\right) dx=\int_{-h}^{0}f\left( x\right)
+dx+\int_{0}^{h}f\left( x\right) dx 
+\]
+
+\item Substitu\'{\i}mos a aproxima\c{c}\~{a}o,%
+\begin{eqnarray*}
+\int_{-h}^{h}f\left( x\right) dx &\approx &\int_{x_{-1}}^{x_{0}}\left[
+f_{0}+x\frac{f_{0}-f_{-1}}{h}+\mathcal{O}\left( x^{2}\right) \right] dx \\
+&&+\int_{x_{0}}^{x_{1}}\left[ f_{0}+x\frac{f_{1}-f_{0}}{h}+\mathcal{O}\left(
+x^{2}\right) \right] dx.
+\end{eqnarray*}
+\end{stepitemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\begin{stepitemize}
+\item Resultando em%
+\begin{eqnarray*}
+\int_{-h}^{h}f\left( x\right) dx &\approx &\left[ 0-\left( -h\right) \right]
+f_{0}+\frac{f_{0}-f_{-1}}{h}\frac{0^{2}-\left( -h\right) ^{2}}{2} \\
+&&+\left( h-0\right) f_{0}+\frac{f_{1}-f_{0}}{h}\left[ \frac{h^{2}-0^{0}}{2}%
+\right] +\mathcal{O}\left( h^{3}\right) .
+\end{eqnarray*}
+
+\item Chegamos em%
+\begin{equation}
+\int_{-h}^{h}f\left( x\right) dx\approx \frac{h}{2}\left(
+f_{-1}+2f_{0}+f_{1}\right) +\mathcal{O}\left( h^{3}\right) .  \label{eq.trapezio}
+\end{equation}
+\end{stepitemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\frametitle{Desenvolvendo a f\'{o}rmula num\'{e}rica}
+
+\begin{stepitemize}
+\item Novamente, devemos submeter nossa f\'{o}rmula \`{a}%
+\[
+\int_{a}^{b}f\left( x\right) dx=\int_{a}^{a+h}f\left( x\right)
+dx+\int_{a+h}^{a+2h}f\left( x\right) dx+...+\int_{b-h}^{b}f\left( x\right)
+dx. 
+\]
+
+\item Mas h\'{a} um detalhe sutil, de que, agora temos a exig\^{e}ncia de $n$
+subintervalos pares.%
+\[
+\int_{a}^{b}f\left( x\right) dx=\int_{a}^{a+2h}f\left( x\right)
+dx+\int_{a+2h}^{a+4h}f\left( x\right) dx+...+\int_{b-2h}^{b}f\left( x\right)
+dx.
+\]
+
+\item Ent\~{a}o utilizamos a Eq.(\ref{eq.trapezio})%
+\begin{eqnarray*}
+\int_{a}^{b}f\left( x\right) dx &=&\frac{h}{2}\left[ f\left( a\right)
++2f\left( a+h\right) +f\left( a+2h\right) \right] \\
+&&+\frac{h}{2}\left[ f\left( a+2h\right) +2f\left( a+3h\right) +f\left(
+a+4h\right) \right] \\
+&&+...+\frac{h}{2}\left[ f\left( b-2h\right) +2f\left( b-h\right) +f\left(
+b\right) \right] +\mathcal{O}\left( h^{5}\right) .
+\end{eqnarray*}
+\end{stepitemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\begin{stepitemize}
+\item Agrupando os termos em comum,%
+\begin{eqnarray*}
+\int_{a}^{b}f\left( x\right) dx &=&\frac{h}{2}\left[ f\left( a\right)
++2f\left( a+h\right) +\left( 2\right) f\left( a+2h\right) \right]  \\
+&&+\frac{h}{2}\left[ +2f\left( a+3h\right) +f\left( a+4h\right) \right]  \\
+&&+...+\frac{h}{2}\left[ f\left( b-2h\right) +2f\left( b-h\right) +f\left(
+b\right) \right] +\mathcal{O}\left( h^{5}\right) .
+\end{eqnarray*}
+
+\item Rearranjando,%
+\[
+\int_{a}^{b}f\left( x\right) dx=\frac{h}{2}\left[ f\left( x_{0}\right)
++2\sum_{i=1}^{n-1}f\left( x_{i}\right) +f\left( x_{n}\right) \right] + \mathcal{O}\left( h^{5} \right) .
+\]
+
+\item Lembrando que, $x_{i}=x_{0}+i\times h$, $x_{0}$ \'{e} o limite
+inferior e $x_{n}$ \'{e} o limite superior.
+\end{stepitemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\section{O M\'{e}todo de Simpson 1/3}
+
+\subsection{Desenvolvendo a f\'{o}rmula}
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\frametitle{Desenvolvendo a f\'{o}rmula}
+
+\begin{stepitemize}
+\item Agora supomos que $f$ possa ser aproximada por uma par\'{a}bola nos
+subintervalos $[-h,h]$%
+\begin{eqnarray}
+f\left( x\right)  &\approx &f_{0}+xf^{\prime }+\frac{x^{2}}{2!}f^{\prime
+\prime }+\mathcal{O}\left( x^{3}\right) \nonumber  \label{eq.aproximacao} \\
+&\approx&f_{0}+x\frac{f_{1}-f_{-1}}{2h}+\frac{x^{2}}{2}\frac{f_{1}-2f_{0}+f_{-1}}{%
+h^{2}}+\mathcal{O}\left( x^{3}\right)  .
+\end{eqnarray}
+
+\item Ent\~{a}o integramos no intervalo entre $-h$ e $h$, substituindo a
+aproxima\c{c}\~{a}o Eq.(\ref{eq.aproximacao}),%
+\[
+\int_{-h}^{h}f\left( x\right) dx\approx \left[ xf_{0}+\frac{x^{2}}{2}\frac{%
+f_{1}-f_{-1}}{2h}+\frac{x^{3}}{3!}\frac{f_{1}-2f_{0}+f_{-1}}{h^{2}}\right]
+_{-h}^{h}+\mathcal{O}\left( h^{5}\right) 
+\]
+
+\item Resultando em%
+\begin{equation}
+\int_{-h}^{h}f\left( x\right) dx\approx h\frac{f_{1}+4f_{0}+f_{-1}}{3}%
++\mathcal{O}\left( h^{5}\right)   \label{eq.simpson1.3}
+\end{equation}
+\end{stepitemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\frametitle{Desenvolvendo a f\'{o}rmula num\'{e}rica}
+
+\begin{stepitemize}
+\item Submetendo nossa f\'{o}rmula \`{a}%
+\[
+\int_{a}^{b}f\left( x\right) dx=\int_{a}^{a+2h}f\left( x\right)
+dx+\int_{a+2h}^{a+4h}f\left( x\right) dx+...+\int_{b-2h}^{b}f\left( x\right)
+dx. 
+\]
+
+\item Ent\~{a}o utilizamos a Eq.(\ref{eq.simpson1.3})%
+\begin{eqnarray*}
+\int_{a}^{b}f\left( x\right) dx &=&\frac{h}{3}\left[ f\left( a\right)
++4f\left( a+h\right) +f\left( a+2h\right) \right]  \\
+&&+\frac{h}{3}\left[ f\left( a+2h\right) +4f\left( a+3h\right) +f\left(
+a+4h\right) \right]  \\
+&&+\frac{h}{3}\left[ f\left( a+4h\right) +4f\left( a+5h\right) +f\left(
+a+6h\right) \right]  \\
+&&+...+\frac{h}{3}\left[ f\left( b-2h\right) +4f\left( b-h\right) +f\left(
+b\right) \right] +\mathcal{O}\left( h^{5}\right) .
+\end{eqnarray*}
+\end{stepitemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\begin{stepitemize}
+\item Agrupando os termos em comum,%
+\begin{eqnarray*}
+\int_{a}^{b}f\left( x\right) dx &=&\frac{h}{3}\left[ f\left( a\right)
++4f\left( a+h\right) +\left( 2\right) f\left( a+2h\right) \right]  \\
+&&+\frac{h}{3}\left[ 4f\left( a+3h\right) +\left( 2\right) f\left(
+a+4h\right) \right]  \\
+&&+\frac{h}{3}\left[ 4f\left( a+5h\right) +f\left( a+6h\right) \right]  \\
+&&+...+\frac{h}{3}\left[ f\left( b-2h\right) +4f\left( b-h\right) +f\left(
+b\right) \right] +\mathcal{O}\left( h^{5}\right) .
+\end{eqnarray*}
+
+\item Rearranjando,%
+\begin{eqnarray*}
+\int_{a}^{b}f\left( x\right) dx &=&\frac{h}{3}\left[ f\left( x_{0}\right)
++4\left( \sum_{i=1}^{n-1}f\left( x_{i}\right) \right) _{\acute{\imath}mpar}%
+\right]  \\
+&&+\frac{h}{3}\left[ 2\left( \sum_{i=2}^{n-2}f\left( x_{i}\right) \right)
+_{par}+f\left( x_{n}\right) \right] +\mathcal{O}\left( h^{5}\right),
+\end{eqnarray*}
+
+\item onde $x_{0}=a$, $x_{i}=x_{0}+i\times h$, $x_{n}=b$.
+\end{stepitemize}
+
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+\begin{frame}
+Compléments de Mathématiques, André Angot.
+\begin{center}
+	\begin{tabular}{ c c c c c c c }
+		\rowcolor{Maroon}
+		n & $H_{0}$ & $H_{1}$ & $H_{2}$ & $H_{3}$ & $H_{4}$ & $\mathcal{O}$ \\ 
+		\hline \hline
+		\rowcolor{Maroon!50}
+		1 & 1 & 1 & & & & $\mathcal{O}\left(h^{3}\right)$ \\  
+		\rowcolor{Maroon!10}
+		2 & 1/3 & 4/3 & 1/3 & & & $\mathcal{O}\left(h^{5}\right)$ \\  
+		\rowcolor{Maroon!50}
+		3 & 1/4 & 3/4 & 3/4 & 1/4 & & $\mathcal{O}\left(h^{5}\right)$  \\  
+		\rowcolor{Maroon!10}
+		4 & 7/45 & 32/45 & 12/45 & 32/45 & 7/45 & $\mathcal{O}\left(h^{7}\right)$ \\ 
+		\rowcolor{Maroon!50}
+		5 & 19/144 & 75/144 & 50/144 & 50/144 & $...$ & $\mathcal{O}\left(h^{7}\right)$ \\  
+		\rowcolor{Maroon!10}
+		6 & 41/420 & 216/420 & 27/420 & 272/420 & $...$ & $\mathcal{O}\left(h^{9}\right)$ \\ 
+		\rowcolor{Maroon!50}
+		7 & $ \frac{751}{8640} $ & $ \frac{3577}{8640}$ & $\frac{1323}{8640}$ & $\frac{2989}{8640}$ & $...$ & $\mathcal{O}\left(h^{9}\right)$ \\  
+		\rowcolor{Maroon!10}
+		8 & $ \frac{989}{14175}$ & $\frac{5888}{14175}$ & $\frac{-928}{14175}$ & $\frac{10496}{14175}$ & $...$ & $\mathcal{O}\left(h^{11}\right)$
+	\end{tabular}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Funções de Teste}
+\begin{itemize}
+	\item Função oscilatória
+	\[ \int_{0}^{1,5} \cos(2t)dt = \left.\frac{1}{2} sen(2t) \right|_{0}^{2,55} = 0,07056 \ \ \ . \]
+	\item Função exponencial
+	\[ \int_{0}^{1,5} e^{2x}dx = \left.\frac{1}{2} e^{2x} \right|_{0}^{1,5} = 9,54280 \ \ \ . \]
+	\item Função logarítmica
+	\[ \int_{1,5}^{3} \ln(2x)dx = \left. x(\ln(2) + \ln(x) - 1) \right|_{1,5}^{3} = 2,2274 \ \ \ . \]
+\end{itemize}
+\end{frame}
+
+\end{document}

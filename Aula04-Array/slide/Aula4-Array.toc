@@ -1,0 +1,16 @@
+\babel@toc {brazilian}{}\relax 
+\beamer@sectionintoc {1}{Motiva\c {c}\~{a}o}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{Motivação}{3}{0}{1}
+\beamer@subsectionintoc {1}{2}{Introdução}{4}{0}{1}
+\beamer@sectionintoc {2}{Fundamentos sobre Arrays}{5}{0}{2}
+\beamer@subsectionintoc {2}{1}{Declarando Arrays}{5}{0}{2}
+\beamer@subsectionintoc {2}{2}{Estrutura de um array}{8}{0}{2}
+\beamer@sectionintoc {3}{Trabalhando com arrays}{9}{0}{3}
+\beamer@subsectionintoc {3}{1}{Opera\c {c}\~{o}es básicas}{9}{0}{3}
+\beamer@subsectionintoc {3}{2}{Pausa para trabalhar com a formata\c {c}\~{a}o}{10}{0}{3}
+\beamer@subsectionintoc {3}{3}{Loop DO impl\'{\i }cito}{12}{0}{3}
+\beamer@subsectionintoc {3}{4}{Diferen\c {c}a entre loop impl\'{\i }cito e expl\'{\i }cito}{20}{0}{3}
+\beamer@subsectionintoc {3}{5}{Se\c {c}\~{a}o de Array}{25}{0}{3}
+\beamer@sectionintoc {4}{Uso do Array}{26}{0}{4}
+\beamer@subsectionintoc {4}{1}{Quando Utilizar Arrays?}{26}{0}{4}
+\beamer@subsectionintoc {4}{2}{Quando N\~{a}o Utilizar Array}{27}{0}{4}
