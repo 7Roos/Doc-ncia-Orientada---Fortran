@@ -1,36 +1,77 @@
-program integrationSimpson
-!func(x) = 2. - 2.*(x**2)      !Função a ser integrada
-func(x) = 2*cos(0.5 + 0.1*x)
-! Intervalo de 0 a 1.
-a = 0.                 
+program estability_integral
+implicit none
+real :: a, b, x, Erro_retangulo, Erro_trapezoidal, Erro_simpson1_3, Erro_simpson3_8, Erro_bode
+integer :: N, i
+real ::  retangulo, trapezoidal, simpson1_3, simpson3_8, bode
+
+a = .0              
 b = 2.55
-!exact = (2.*(b) - 2.*(b**3)/3.) - (2.*(a) - 2.*(a**3)/3.)  !Resultado analítico
-exact = (2./0.1)*(sin(0.5 + 0.1*b) - sin(0.5 + 0.1*a))
-do
-  print *, 'Entre com o valor do números de passos (N<2 stop)'
-  read *, N
-  if ( N < 2 ) stop 
-  if (mod(N,2) /= 0) N = N + 1  ! Mod resto da divisão por 2, pois teremos que ir de 2 em 2, como nas outras regras.
-  h = (b-a) / N
-  sum = func(a)          !contribuição de X=0 (limite inferior da integral)
-  ifac = 2               !fator i*h par para a regra de Simpson 1/3
-  do i=1, N-1            !loop sobre pontos de rede
-    if (ifac == 2) then  !Alternância dos fatores 2 e 4
-      ifac = 4           !fator i*h ímpar para a regra de Simpson 1/3
-    else
-      ifac = 2
-    end if
-    x = i * h
-    sum = sum + ifac * func(x)
-    !print *, ifac
-  end do
-  sum = sum + func(b)    !contribuição de X=1 (limite superior da integral)
-  xint = sum * h / 3.     !integral numérica
-  diff = exact - xint
-  print 20, xint, diff
-  20 format(5x, 'Resultado = ', E15.8, 5X, 'ERRO = ', E15.8) 
+N = 128
+
+open(unit=9, file='IntRetangulo.dat')
+open(unit=10, file='IntTrapezoidal.dat')
+open(unit=20, file='IntSimpson1_3.dat')
+open(unit=30, file='IntSimpson3_8.dat')
+open(unit=40, file='IntBode.dat')
+
+do i=4, N
+  !Erro_retangulo = retangulo(a, b, i)
+  !Erro_trapezoidal = trapezoidal(a, b, i)
+  !Erro_simpson1_3 = simpson1_3(a, b, i)
+  !Erro_simpson3_8 = simpson3_8(a, b, i)
+  Erro_bode = bode(a, b, i)
 end do
-end program integrationSimpson
+
+close(9)
+close(10)
+close(20)
+close(30)
+close(40)
+
+call system('gnuplot -p template.gnu')
+end program
+
+real function fun(x)
+implicit none 
+real, intent(in) :: x 
+real ::g, v_t
+!fun = 2*cos(0.5 + 0.1*x)
+g = 9.81
+v_t = (5.*10.**(-7)*g/(1.85*10.**(-7)))
+fun = g*exp(-g*x/v_t)
+end function
+
+real function funExact(a, b)
+implicit none 
+real, intent(in) :: a, b
+real ::g, v_t
+!funExact = (2./0.1)*(sin(0.5 + 0.1*b) - sin(0.5 + 0.1*a))
+g = 9.81
+v_t = (5.*10.**(-7)*g/(1.85*10.**(-7)))
+funExact = v_t*((exp(-g*b/v_t) - 1.) - (exp(-g*a/v_t) - 1))
+end function
+
+real function retangulo(a, b, istep)
+implicit none
+real, external :: fun, funExact
+real, intent(in) :: a, b
+integer, intent(in) :: istep
+integer :: N, i, fac
+real :: sum, h, x, Erro_retangulo
+
+N = istep
+if ( N < 2 ) stop
+h = (b-a)/N
+x = 0
+sum = 0
+do i=1, N-1             !loop sobre pontos de rede
+  x = a + i * h
+  sum = sum + fun(x)
+end do
+retangulo = sum * h
+Erro_retangulo = funExact(a, b) - retangulo
+write(9,*) N, ABS(Erro_retangulo)
+end function
 
 real function trapezoidal(a, b, istep)
 implicit none
@@ -140,14 +181,12 @@ do i=1, N-1             !loop sobre pontos de rede
   if (j == 1 .OR. j == 3) then   !Alternância dos fatores 2 e 3
     fac = 32
     j = j + 1
+  else if (j == 2) then
+    fac = 12
+    j = j + 1
   else
-    if (j == 2) then
-      fac = 12
-      j = j + 1
-    else
-      fac = 14
-      j = 1
-    end if
+    fac = 14
+    j = 1
   end if
   x = a + i * h
   sum = sum + fac * fun(x)

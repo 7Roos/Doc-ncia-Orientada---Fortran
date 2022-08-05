@@ -1,9 +1,9 @@
 set terminal pngcairo size 600,400 font 'arial,12' fontscale 1.0
 set encoding utf8
-set output 'graphQuadratico.png'      #Escolhe o formato e nome do arq de saída
+set output 'graphPrecisionD_Log.png'      #Escolhe o formato e nome do arq de saída
 set xlabel "N Passos"              #Rotula o eixo x
 set ylabel "Erro"           #Rotula o eixo y
-set title "Integral função Quadrática"    #Título do gráfico
+set title "Integral função Log"    #Título do gráfico
 
 #Agrupa algumas configurações gerais da linha do plot
 set style line 1 lt -1 pi -1 pt 1 lc rgb "red" lw 2
@@ -30,4 +30,4 @@ set ytics ("10^{-1}" log(0.1), "10^{-2}" log(0.01), "10^{-3}" log(0.001), "10^{-
 #set key at graph .35, 0.9
 set key outside
 #Podemos acessar cada coluna do arquivo dat por $1.
-plot ret using ( ($1) ):( log($2) ) with linespoints ls 1 title "Retangulo", m using ( ($1) ):( log($2) ) with linespoints ls 2 title "Trapezoidal", n using ( ($1) ):( log($2) ) with linespoints ls 3 title "Simpson 1/3"#, o using ( ($1) ):( log($2) ) with linespoints ls 4 title "Simpson 3/8"#, p using ( ($1) ):( log($2) ) with linespoints ls 5 title "Boole"
+plot ret using ( ($1) ):( log($2) ) with linespoints ls 1 title "Retangulo", m using ( ($1) ):( log($2) ) with linespoints ls 2 title "Trapezoidal", n using ( ($1) ):( log($2) ) with linespoints ls 3 title "Simpson 1/3", o using ( ($1) ):( log($2) ) with linespoints ls 4 title "Simpson 3/8"#, p using ( ($1) ):( log($2) ) with linespoints ls 5 title "Boole"

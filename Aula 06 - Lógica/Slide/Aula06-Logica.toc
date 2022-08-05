@@ -1,0 +1,14 @@
+\babel@toc {brazilian}{}\relax 
+\beamer@sectionintoc {1}{Motiva\c {c}\~{a}o}{2}{0}{1}
+\beamer@sectionintoc {2}{Valores l\'{o}gicos}{3}{0}{2}
+\beamer@subsectionintoc {2}{1}{C\'{a}lculo l\'{o}gico}{8}{0}{2}
+\beamer@subsectionintoc {2}{2}{Operadores relacionais}{11}{0}{2}
+\beamer@subsectionintoc {2}{3}{Operadores combinacionais}{23}{0}{2}
+\beamer@sectionintoc {3}{Tabela verdade}{32}{0}{3}
+\beamer@sectionintoc {4}{Controle de ramifica\c {c}\~{o}es}{42}{0}{4}
+\beamer@subsectionintoc {4}{1}{Bloco IF - instru\c {c}\~{a}o EXIT e STOP}{46}{0}{4}
+\beamer@subsectionintoc {4}{2}{Cl\'{a}usula ELSE e ELSE IF}{54}{0}{4}
+\beamer@subsectionintoc {4}{3}{Tornando os blocos IF mais sem\^{a}nticos}{61}{0}{4}
+\beamer@sectionintoc {5}{Construtor SELECT CASE}{70}{0}{5}
+\beamer@sectionintoc {6}{Debugging}{77}{0}{6}
+\beamer@subsectionintoc {6}{1}{Dicas de checagem}{88}{0}{6}

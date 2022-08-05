@@ -1,7 +1,9 @@
 \babel@toc {brazilian}{}\relax 
-\beamer@sectionintoc {1}{M\'{e}todo fechado de Newton-Cotes}{3}{0}{1}
+\beamer@sectionintoc {1}{M\'{e}todo de Newton-Cotes fechado}{3}{0}{1}
 \beamer@sectionintoc {2}{Partindo dos m\'{e}todos j\'{a} conhecidos}{5}{0}{2}
 \beamer@subsectionintoc {2}{1}{Regra dos ret\^{a}ngulos}{5}{0}{2}
 \beamer@subsectionintoc {2}{2}{Regra dos trap\'{e}zios}{13}{0}{2}
 \beamer@sectionintoc {3}{O M\'{e}todo de Simpson 1/3}{24}{0}{3}
 \beamer@subsectionintoc {3}{1}{Desenvolvendo a f\'{o}rmula}{24}{0}{3}
+\beamer@sectionintoc {4}{Fórmulas de ordem mais elevada}{32}{0}{4}
+\beamer@sectionintoc {5}{Aplicação}{33}{0}{5}

@@ -4,7 +4,7 @@
 \headcommand {\beamer@framepages {2}{2}}
 \headcommand {\beamer@sectionpages {1}{2}}
 \headcommand {\beamer@subsectionpages {1}{2}}
-\headcommand {\sectionentry {1}{M\'{e}todo fechado de Newton-Cotes}{3}{M\'{e}todo fechado de Newton-Cotes}{0}}
+\headcommand {\sectionentry {1}{M\'{e}todo de Newton-Cotes fechado}{3}{M\'{e}todo de Newton-Cotes fechado}{0}}
 \headcommand {\slideentry {1}{0}{1}{3/3}{}{0}}
 \headcommand {\beamer@framepages {3}{3}}
 \headcommand {\slideentry {1}{0}{2}{4/4}{}{0}}
@@ -39,12 +39,18 @@
 \headcommand {\beamer@framepages {27}{28}}
 \headcommand {\slideentry {3}{1}{3}{29/31}{Desenvolvendo a f\'{o}rmula}{0}}
 \headcommand {\beamer@framepages {29}{31}}
-\headcommand {\slideentry {3}{1}{4}{32/32}{Desenvolvendo a f\'{o}rmula}{0}}
+\headcommand {\beamer@sectionpages {24}{31}}
+\headcommand {\beamer@subsectionpages {24}{31}}
+\headcommand {\sectionentry {4}{Fórmulas de ordem mais elevada}{32}{Fórmulas de ordem mais elevada}{0}}
+\headcommand {\slideentry {4}{0}{1}{32/32}{}{0}}
 \headcommand {\beamer@framepages {32}{32}}
-\headcommand {\slideentry {3}{1}{5}{33/33}{Desenvolvendo a f\'{o}rmula}{0}}
+\headcommand {\beamer@sectionpages {32}{32}}
+\headcommand {\beamer@subsectionpages {32}{32}}
+\headcommand {\sectionentry {5}{Aplicação}{33}{Aplicação}{0}}
+\headcommand {\slideentry {5}{0}{1}{33/33}{}{0}}
 \headcommand {\beamer@framepages {33}{33}}
 \headcommand {\beamer@partpages {1}{33}}
-\headcommand {\beamer@subsectionpages {24}{33}}
-\headcommand {\beamer@sectionpages {24}{33}}
+\headcommand {\beamer@subsectionpages {33}{33}}
+\headcommand {\beamer@sectionpages {33}{33}}
 \headcommand {\beamer@documentpages {33}}
 \headcommand {\gdef \inserttotalframenumber {15}}

@@ -1,0 +1,73 @@
+\headcommand {\slideentry {0}{0}{1}{1/1}{}{0}}
+\headcommand {\beamer@framepages {1}{1}}
+\headcommand {\beamer@sectionpages {1}{1}}
+\headcommand {\beamer@subsectionpages {1}{1}}
+\headcommand {\sectionentry {1}{Motiva\c {c}\~{a}o}{2}{Motiva\c {c}\~{a}o}{0}}
+\headcommand {\slideentry {1}{0}{1}{2/2}{}{0}}
+\headcommand {\beamer@framepages {2}{2}}
+\headcommand {\beamer@sectionpages {2}{2}}
+\headcommand {\beamer@subsectionpages {2}{2}}
+\headcommand {\sectionentry {2}{Valores l\'{o}gicos}{3}{Valores l\'{o}gicos}{0}}
+\headcommand {\slideentry {2}{0}{1}{3/7}{}{0}}
+\headcommand {\beamer@framepages {3}{7}}
+\headcommand {\beamer@subsectionpages {3}{7}}
+\headcommand {\beamer@subsectionentry {0}{2}{1}{8}{C\'{a}lculo l\'{o}gico}}
+\headcommand {\slideentry {2}{1}{1}{8/10}{C\'{a}lculo l\'{o}gico}{0}}
+\headcommand {\beamer@framepages {8}{10}}
+\headcommand {\beamer@subsectionpages {8}{10}}
+\headcommand {\beamer@subsectionentry {0}{2}{2}{11}{Operadores relacionais}}
+\headcommand {\slideentry {2}{2}{1}{11/18}{Operadores relacionais}{0}}
+\headcommand {\beamer@framepages {11}{18}}
+\headcommand {\slideentry {2}{2}{2}{19/22}{Operadores relacionais}{0}}
+\headcommand {\beamer@framepages {19}{22}}
+\headcommand {\beamer@subsectionpages {11}{22}}
+\headcommand {\beamer@subsectionentry {0}{2}{3}{23}{Operadores combinacionais}}
+\headcommand {\slideentry {2}{3}{1}{23/29}{Operadores combinacionais}{0}}
+\headcommand {\beamer@framepages {23}{29}}
+\headcommand {\slideentry {2}{3}{2}{30/31}{Operadores combinacionais}{0}}
+\headcommand {\beamer@framepages {30}{31}}
+\headcommand {\beamer@sectionpages {3}{31}}
+\headcommand {\beamer@subsectionpages {23}{31}}
+\headcommand {\sectionentry {3}{Tabela verdade}{32}{Tabela verdade}{0}}
+\headcommand {\slideentry {3}{0}{1}{32/33}{}{0}}
+\headcommand {\beamer@framepages {32}{33}}
+\headcommand {\slideentry {3}{0}{2}{34/41}{}{0}}
+\headcommand {\beamer@framepages {34}{41}}
+\headcommand {\beamer@sectionpages {32}{41}}
+\headcommand {\beamer@subsectionpages {32}{41}}
+\headcommand {\sectionentry {4}{Controle de ramifica\c {c}\~{o}es}{42}{Controle de ramifica\c {c}\~{o}es}{0}}
+\headcommand {\slideentry {4}{0}{1}{42/45}{}{0}}
+\headcommand {\beamer@framepages {42}{45}}
+\headcommand {\beamer@subsectionpages {42}{45}}
+\headcommand {\beamer@subsectionentry {0}{4}{1}{46}{Bloco IF - instru\c {c}\~{a}o EXIT e STOP}}
+\headcommand {\slideentry {4}{1}{1}{46/53}{Bloco IF - instru\c {c}\~{a}o EXIT e STOP}{0}}
+\headcommand {\beamer@framepages {46}{53}}
+\headcommand {\beamer@subsectionpages {46}{53}}
+\headcommand {\beamer@subsectionentry {0}{4}{2}{54}{Cl\'{a}usula ELSE e ELSE IF}}
+\headcommand {\slideentry {4}{2}{1}{54/60}{Cl\'{a}usula ELSE e ELSE IF}{0}}
+\headcommand {\beamer@framepages {54}{60}}
+\headcommand {\beamer@subsectionpages {54}{60}}
+\headcommand {\beamer@subsectionentry {0}{4}{3}{61}{Tornando os blocos IF mais sem\^{a}nticos}}
+\headcommand {\slideentry {4}{3}{1}{61/62}{Tornando os blocos IF mais sem\^{a}nticos}{0}}
+\headcommand {\beamer@framepages {61}{62}}
+\headcommand {\slideentry {4}{3}{2}{63/69}{Tornando os blocos IF mais sem\^{a}nticos}{0}}
+\headcommand {\beamer@framepages {63}{69}}
+\headcommand {\beamer@sectionpages {42}{69}}
+\headcommand {\beamer@subsectionpages {61}{69}}
+\headcommand {\sectionentry {5}{Construtor SELECT CASE}{70}{Construtor SELECT CASE}{0}}
+\headcommand {\slideentry {5}{0}{1}{70/76}{}{0}}
+\headcommand {\beamer@framepages {70}{76}}
+\headcommand {\beamer@sectionpages {70}{76}}
+\headcommand {\beamer@subsectionpages {70}{76}}
+\headcommand {\sectionentry {6}{Debugging}{77}{Debugging}{0}}
+\headcommand {\slideentry {6}{0}{1}{77/87}{}{0}}
+\headcommand {\beamer@framepages {77}{87}}
+\headcommand {\beamer@subsectionpages {77}{87}}
+\headcommand {\beamer@subsectionentry {0}{6}{1}{88}{Dicas de checagem}}
+\headcommand {\slideentry {6}{1}{1}{88/93}{Dicas de checagem}{0}}
+\headcommand {\beamer@framepages {88}{93}}
+\headcommand {\beamer@partpages {1}{93}}
+\headcommand {\beamer@subsectionpages {88}{93}}
+\headcommand {\beamer@sectionpages {77}{93}}
+\headcommand {\beamer@documentpages {93}}
+\headcommand {\gdef \inserttotalframenumber {18}}

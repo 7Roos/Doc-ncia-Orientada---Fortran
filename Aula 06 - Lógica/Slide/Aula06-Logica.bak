@@ -1,0 +1,776 @@
+
+\documentclass[notes=show]{beamer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{mathpazo}
+\usepackage{hyperref}
+\usepackage{multimedia}
+
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.50.0.2953}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%TCIDATA{Created=Sunday, July 31, 2022 13:15:55}
+%TCIDATA{LastRevised=Wednesday, August 03, 2022 01:25:57}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="Other Documents\SW\Slides - Beamer">}
+%TCIDATA{CSTFile=beamer.cst}
+
+\newenvironment{stepenumerate}{\begin{enumerate}[<+->]}{\end{enumerate}}
+\newenvironment{stepitemize}{\begin{itemize}[<+->]}{\end{itemize} }
+\newenvironment{stepenumeratewithalert}{\begin{enumerate}[<+-| alert@+>]}{\end{enumerate}}
+\newenvironment{stepitemizewithalert}{\begin{itemize}[<+-| alert@+>]}{\end{itemize} }
+\usetheme{Madrid}
+\input{tcilatex}
+\begin{document}
+
+\title[Beamer presentations in \textsl{SWP\/}{} and \textsl{SW}]{Creating
+Beamer presentations in \textsl{Scientific WorkPlace\/}{} and \textsl{%
+Scientific Word}{}}
+\subtitle{Impressive slide presentations}
+\author[MSI Tech Support]{MacKichan Software Technical Support}
+\institute[Institute]{Delete or rename Institute field}
+\date[03/06]{March 2006}
+\maketitle
+
+\section{Motiva\c{c}\~{a}o}
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{Motiva\c{c}\~{a}o}
+
+\begin{itemize}
+\item L\'{o}gica est\'{a} presente na matem\'{a}tica e em todas as
+linguagens de programa\c{c}\~{a}o (sem\^{a}ntica, l\'{o}gica, sintaxe);
+
+\item Car\'{a}ter generalista (conhecimento aplic\'{a}vel a outras
+linguagens);
+
+\item Economizador de condicionais if-else;
+
+\item Ferramenta a mais para contruir c\'{o}digos, pois as ramifica\c{c}\~{o}%
+es s\~{a}o geralmente controladas atrav\'{e}s de valores l\'{o}gicos;
+
+\item Loops trabalham com express\~{o}es l\'{o}gicas;
+
+\item A vari\'{a}vel LOGICAL (booleano).
+\end{itemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\section{Valores l\'{o}gicos}
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{Valores l\'{o}gicos}
+
+\begin{stepitemize}
+\item O dado de tipo l\'{o}gico permite \textbf{apenas} dois valores (duas
+constantes):
+
+\begin{itemize}
+\item .TRUE. $\rightarrow $Verdadeiro;
+
+\item .FALSE.$\rightarrow $Falso.
+\end{itemize}
+
+\item Eles s\~{a}o do tipo LOGICAL (booleano);%
+\[
+\text{LOGICAL :: \ var1, var2,...} 
+\]
+
+\item Raramente vamos utilizar constantes l\'{o}gicas, mas sim express\~{o}%
+es l\'{o}gicas para controlar a execu\c{c}\~{a}o;
+\end{stepitemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\subsection{C\'{a}lculo l\'{o}gico}
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{C\'{a}lculo l\'{o}gico}
+
+\begin{stepitemize}
+\item Assim como no caso aritm\'{e}tico, atribu\'{\i}mos uma declara\c{c}%
+\~{a}o aos c\'{a}lculos l\'{o}gicos que ser\~{a}o executados, tal que,%
+\[
+\text{logical\_var\_name = logical\_expr} 
+\]
+
+\item Um operador l\'{o}gico \'{e} um operador em dados num\'{e}ricos, de
+caracteres ou l\'{o}gicos que geram um resultado l\'{o}gico;
+
+\item Existem operadores relacionais e operadores combinacionais.
+\end{stepitemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\subsection{Operadores relacionais}
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{Operadores relacionais}
+
+\begin{stepitemize}
+\item S\~{a}o operadores com dois operandos num\'{e}ricos ou de caracteres
+que v\~{a}o produzir um resultado l\'{o}gico;
+
+\item O resultado depende da \textbf{rela\c{c}\~{a}o} entre estes dois
+valores que est\~{a}o sendo comparados;
+
+\item A forma geral de uma rela\c{c}\~{a}o operador relacional \'{e} a
+seguinte:%
+\[
+\text{A op B.} 
+\]
+
+\item A e B podem ser uma:
+
+\begin{itemize}
+\item express\~{a}o aritm\'{e}tica;
+
+\item vari\'{a}vel;
+
+\item constante;
+
+\item ou ent\~{a}o cadeia de caracteres(string).
+\end{itemize}
+\end{stepitemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{Forma dos operadores relacionais}
+
+\begin{stepitemize}
+\item Existem duas formas de se escrever um operador relacional;
+
+\item A forma da esquerda foi introduzida no Fortran 90, enquanto que a
+outra vem de vers\~{o}es anteriores;
+
+\item 
+\begin{tabular}{lll}
+Novo & Velho & Significado \\ 
+== & .EQ. & Igual a? \\ 
+/= & .NE. & Diferente de \\ 
+\TEXTsymbol{>} & .GT. & Maior que \\ 
+\TEXTsymbol{>}= & .GE. & Maior ou igual a \\ 
+\TEXTsymbol{<} & .LT. & Menor que \\ 
+\TEXTsymbol{<}= & .LE. & Menor ou igual a%
+\end{tabular}
+
+\item Vejamos o Exemplo 1;
+
+\item Express\~{o}es matem\'{a}ticas s\~{a}o desenvolvidas antes dos
+operadores relacionais. Veja o Exemplo 2;
+
+\item Ao comparar um valor real com um inteiro, o valor inteiro ser\'{a}
+convertido para real. Veja o Exemplo 3.
+\end{stepitemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\subsection{Operadores combinacionais}
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{Operadores combinacionais}
+
+\begin{stepitemize}
+\item S\~{a}o operadores com um ou dois operandos l\'{o}gicos que produzem
+um resultado l\'{o}gico;
+
+\item O resultado depende da \textbf{combina\c{c}\~{a}o} entre estes dois
+operandos l\'{o}gicos;
+
+\item A forma geral de uma rela\c{c}\~{a}o operador relacional \'{e} a
+seguinte:%
+\[
+\text{A .op. B} 
+\]
+
+\item A e B podem ser:
+
+\begin{itemize}
+\item express\~{o}es l\'{o}gicas;
+
+\item vari\'{a}veis;
+
+\item ou constantes.
+\end{itemize}
+\end{stepitemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{Forma dos operadores combinacionais}
+
+\begin{stepitemize}
+\item Existem duas formas de se escrever um operador relacional;
+
+\item A forma da esquerda foi introduzida no Fortran 90, enquanto que a
+outra vem de vers\~{o}es anteriores;
+
+\item 
+\begin{tabular}{lll}
+Operador & Fun\c{c}\~{a}o & Retorno TRUE se \\ 
+A .AND. B & E l\'{o}gico & A e B forem verdadeiros \\ 
+A .OR. B & OU L\'{o}gico & A ou B forem verdadeiros \\ 
+A .EQV. B & Equival\^{e}ncia l\'{o}gica & A \'{e} o \textbf{mesmo} que B \\ 
+A .NEQV. B & N\~{a}o equival\^{e}ncia l\'{o}gica & A \'{e} Verdadeiro e B 
+\'{e} Falso \\ 
+.NOT. B & Nega\c{c}\~{a}o l\'{o}gica & B \'{e} Falso%
+\end{tabular}
+
+\item Vejamos o Exemplo 4;
+\end{stepitemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\section{Tabela verdade}
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{Tabela verdade}
+
+\begin{stepitemize}
+\item Os operadores l\'{o}gicos abrem v\'{a}rias possibilidades de se
+construir a l\'{o}gica de um programa;
+
+\item Uso do artif\'{\i}cio da tabela verdade-senten\c{c}as matem\'{a}ticas;
+
+\item 
+\begin{tabular}{llllll}
+A & B & .AND. & .OR. & .EQV. & .NEQV. \\ 
+V & V & V & V & V & F \\ 
+V & F & F & V & F & V \\ 
+F & V & F & V & F & V \\ 
+F & F & F & F & V & F%
+\end{tabular}
+\end{stepitemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{Hierarquia geral dos operadores l\'{o}gicos}
+
+\begin{stepitemize}
+\item A ordem com que os operadores em uma express\~{a}o s\~{a}o avaliados 
+\'{e} a seguinte:
+
+\begin{stepenumerate}
+\item Todos os operadores aritm\'{e}ticos;
+
+\item Todos os operadores relacionais, da esq. para a dir.;
+
+\item Todos os operadores de nega\c{c}\~{a}o, .NOT.;
+
+\item Todos os operadores .AND., da esq. para a dir.;
+
+\item Todos os operadores .OR., da esq. para a dir.;
+
+\item Todos os operadores .EQV. e .NEQV., da esq. para a dir.;
+\end{stepenumerate}
+
+\item Podemos tamb\'{e}m utilizar os par\^{e}nteses para alterar a ordem
+natural.
+\end{stepitemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\section{Controle de ramifica\c{c}\~{o}es}
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{Controle de ramifica\c{c}\~{o}es}
+
+\begin{stepitemize}
+\item As ramifica\c{c}\~{o}es (branches) ser\~{a}o instru\c{c}\~{o}es que
+nos permitiram selecionar e executar se\c{c}\~{o}es espec\'{\i}ficas de c%
+\'{o}digo (chamados de blocos) enquanto pula para outras se\c{c}\~{o}es de c%
+\'{o}digo;
+
+\item H\'{a} essencialmente dois tipos dessas instru\c{c}\~{o}es, o
+construtor de bloco IF e o construtor SELECT CASE;
+
+\item Podemos tamb\'{e}m tornar a constru\c{c}\~{a}o destes blocos mais sem%
+\^{a}ntica;
+
+\item Al\'{e}m do controle intr\'{\i}seco dos construtores IF e SELECT CASE,
+podemos adicionar as intru\c{c}\~{o}es EXIT e STOP para
+direcionar/interromper o fluxo.
+\end{stepitemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\subsection{Bloco IF - instru\c{c}\~{a}o EXIT e STOP}
+
+\bigskip 
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{Bloco IF - instru\c{c}\~{a}o EXIT e STOP}
+
+\begin{stepitemize}
+\item A forma mais comum de da instru\c{c}\~{a}o IF \'{e} atrav\'{e}s da
+constru\c{c}\~{a}o de um bloco, que cont\'{e}m express\~{o}es que ser\~{a}o
+executadas se uma dada condi\c{c}\~{a}o for verdadeira.
+
+\begin{itemize}
+\item A declara\c{c}\~{a}o END, ou ent\~{a}o END IF, \'{e} obrigat\'{o}ria
+neste caso;
+
+\item Bem como a declara\c{c}\~{a}o THEN logo ap\'{o}s a condi\c{c}\~{a}o l%
+\'{o}gica.
+\end{itemize}
+
+\item Mas esta n\~{a}o \'{e} a \'{u}nica forma, podemos construir a instru%
+\c{c}\~{a}o IF em apenas uma linha tamb\'{e}m, o que \'{e} totalmente
+equivalente a n\'{\i}vel de compilador;
+
+\item Podemos tamb\'{e}m adicionar crit\'{e}rios de parada. Existem dois
+tipos, s\~{a}o eles:
+
+\begin{itemize}
+\item EXIT: O programa n\~{a}o executar\'{a} o que estiver dentro do bloco
+IF, saltando para a proxima linha abaixo do bloco
+
+\item STOP: Para (interrompe) todo o programa. Deve ser usado com cautela. N%
+\~{a}o \'{e} recomendado utilizar em sub-rotinas. Pode vir acompanhado de
+uma mensagem (recomendado principalmente quando houverem diversos STOP).
+\end{itemize}
+
+\item Veja o Exemplo 6.
+\end{stepitemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\subsection{Cl\'{a}usula ELSE e ELSE IF}
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{Cl\'{a}usula ELSE e ELSE IF}
+
+\begin{stepitemize}
+\item Por vezes, gostar\'{\i}amos tanto de executar um bloco de c\'{o}digo
+quando uma condi\c{c}\~{a}o IF \'{e} verdadeira, como tamb\'{e}m outro bloco
+de c\'{o}digo quando for falsa;
+
+\item A cl\'{a}usula ELSE resolve este problema, podemos interpret\'{a}-la
+como significando: sen\~{a}o;
+
+\item Mas tamb\'{e}m em outras ocasi\~{o}es, gostar\'{\i}amos de executar
+mais do que dois blocos distintos de c\'{o}digo;
+
+\item Ou seja, quando gostar\'{\i}amos de continuar testando depois do SEN%
+\~{A}O (ELSE);
+
+\item Para isso, utilizaremos a cl\'{a}usula ELSE IF;
+
+\item O programa percorrer\'{a} \textbf{todos os blocos} de cima para baixo
+at\'{e} atingir a condi\c{c}\~{a}o verdadeira;
+
+\item Veja o Exemplo 7.
+\end{stepitemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\subsection{Tornando os blocos IF mais sem\^{a}nticos}
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{Tornando os blocos IF mais sem\^{a}nticos}
+
+\begin{stepitemize}
+\item Em alguns casos teremos muitos blocos IF-ELSE encadeados (aninhados),
+o que poder\'{a} tornar dif\'{\i}cil visualizar o que est\'{a} acontecendo
+ali;
+
+\item Para resolver isso, podemos nomear os blocos IF-ELSE;
+
+\item Cuja forma geral \'{e}:
+
+\item Em [nome] poderemos utilizar caracteres alfanum\'{e}ricos, desde que o
+primeiro \textbf{seja uma letra};
+
+\item \lbrack nome] deve ser \textbf{\'{u}nico} dentro de cada unidade de
+programa;
+
+\item O nome do bloco deve estar contido na declara\c{c}\~{a}o END IF;
+
+\item Nas declara\c{c}\~{a}o ELSE e ELSE IF o nome do bloco \'{e} opcional;
+
+\item Nomear os blocos tornar\'{a} a inten\c{c}\~{a}o de um programador
+explicitamente claras;
+
+\item Os nomes tamb\'{e}m poder\~{a}o auxiliar o compilador a sinalizar
+erros, pois ele sempre ir\'{a} associar com o IF mais recente.
+
+\item Veja o Exemplo 8.
+\end{stepitemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\section{Construtor SELECT CASE}
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{Construtor SELECT CASE}
+
+\begin{stepitemize}
+\item Tem um mecanismo muito semelhante ao construtor IF, mas com uma sutil
+diferen\c{c}a;
+
+\item Suporta os seguintes tipos de dados de entrada:
+
+\begin{itemize}
+\item um \'{u}nico n\'{u}mero inteiro;
+
+\item caractere
+
+\item uma express\~{a}o l\'{o}gica;
+
+\item ou um intervalo de valores.
+\end{itemize}
+
+\item Possui a seguinte forma geral:
+
+\item O bloco DEFAULT (padr\~{a}o) \'{e} opcional;
+
+\item Veja o Exemplo 9.
+\end{stepitemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\section{Debugging}
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{Debugging}
+
+\begin{stepitemize}
+\item Quanto mais complexo vai ficando o c\'{o}digo, maiores ser\~{a}o as
+chances de ter erros n\~{a}o esperados:
+
+\begin{itemize}
+\item Seja erros de sintaxe, ao unir os pequenos blocos do c\'{o}digo;
+
+\item Seja erros de tempo de execu\c{c}\~{a}o;
+
+\item Seja tamb\'{e}m, a escrita correto, mas que n\~{a}o d\'{a} o resultado
+esperado.
+\end{itemize}
+
+\item Portanto, \'{e} importante usufruir de ferramentas que verifiquem o c%
+\'{o}digo, peda\c{c}o por peda\c{c}o;
+
+\begin{itemize}
+\item Uma delas \'{e} utilizar o depurador;
+
+\item Ou ent\~{a}o, incluindo declara\c{c}\~{o}es PRINT ou WRITE em pontos
+espec\'{\i}ficos do c\'{o}digo.
+\end{itemize}
+
+\item O problema do depurador, \'{e} que as instru\c{c}\~{o}es e seu uso,
+depender\'{a} do compilador em espec\'{\i}fico;
+
+\item A princ\'{\i}pio, o LINUX j\'{a} vem com um depurador, o GDB;
+
+\item Que \'{e} mais utilizado em linguagens como C/C++, mas que pode ser
+utilizado para o Fortran;
+
+\item No editor VS CODE, h\'{a} uma exten\c{c}\~{a}o, Fortran Breakpoint
+Support, do Ekibun, que pode, a princ\'{\i}pio ser utilizado para criar os
+pontos de parada concomitantemente com um depurador;
+
+\item Algumas dicas de checagem:
+
+\begin{itemize}
+\item Se o problema estiver numa instru\c{c}\~{a}o IF, verique se utilizou a
+condi\c{c}\~{a}o (a l\'{o}gica) de forma correta. Express\~{o}es l\'{o}gicas
+s\~{a}o complexas, pois s\~{a}o dif\'{\i}ceis de entender, e muito f\'{a}%
+ceis para bagun\c{c}ar o c\'{o}digo;
+
+\item Utilize par\^{e}nteses extras em condi\c{c}\~{o}es relacionais para
+torn\'{a}-las mais f\'{a}ceis de se entender;
+
+\item Se suas express\~{o}es l\'{o}gicas ests\~{a}o muito grandes, considere
+divid\'{\i}-las em mais senten\c{c}as mais simples e curtas;
+
+\item Ao trabalhar com valores reais, substitua testes de igualdade, pelos
+de quase igualdade , por causa dos erros de arredondamento;
+
+\item Por exemplo, ao inv\'{e}s de teste se $x=2$, considere testar%
+\[
+\left\vert x-2\right\vert <0,0001
+\]
+
+\item Qualquer valor entre $1,9999$ e $2,0001$ ser\'{a} contemplado.
+\end{itemize}
+\end{stepitemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\section{Atributos Fortran redundantes, obsoletos e deletados}
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{Atributos Fortran redundantes, obsoletos e deletados}
+
+\begin{stepitemize}
+\item A instru\c{c}\~{a}o PAUSE:
+
+\begin{itemize}
+\item Quando o usu\'{a}rio precisa ler muitos valores na tela, seria necess%
+\'{a}rio pausar de tempos em tempos a execu\c{c}\~{a}o para que ele pudesse
+ler os dados;
+
+\item A instru\c{c}\~{a}o PAUSE fazia isso;
+
+\item Mas pode-se fazer o mesmo com instru\c{c}\~{o}es WRITE e READ, com bem
+mais flexibilidade;
+
+\item A instru\c{c}\~{a}o PAUSE foi exclu\'{\i}da do FORTRAN 95.
+\end{itemize}
+
+\item A declara\c{c}\~{a}o END isolada:
+
+\begin{itemize}
+\item Comum antes do FORTRAN 90;
+
+\item Novo padr\~{a}o: END PROGRAM, END FUNCTION,...
+\end{itemize}
+
+\item Declara\c{c}\~{a}o GO TO:
+
+\begin{itemize}
+\item Era utilizado para criar ramifica\c{c}\~{o}es, loops;
+
+\item \'{E} recomendado evitar o seu uso, pois seu uso em excesso torna-se
+um "spaghetti code";
+
+\item Podemos substitu\'{\i}-los, enquanto loop, por um DO vazio.
+
+\item Veja o Exemplo 10.
+\end{itemize}
+
+\item Declara\c{c}\~{a}o IF artim\'{e}tico:
+
+\begin{itemize}
+\item Origin\'{a}rio de 1954, nunca deve ser usado em programas modernos,
+foi tornado obsoleto no Fortran 95;
+
+\item Veja o Exemplo 10.
+\end{itemize}
+
+\item Veja o Exemplo 1.
+\end{stepitemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\section{Loops e l\'{o}gica}
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\QTR{frametitle}{Loops e l\'{o}gica}
+
+\begin{stepitemize}
+\item Em Fortran temos dois tipos de loops, DO (fa\c{c}a) e WHILE (enquanto).
+
+\item Caracter\'{\i}sticas do loop DO:
+
+\begin{itemize}
+\item Contagem expl\'{\i}cita, conhecemos o valor inicial e final que o loop
+deve percorrer.
+
+\item A itera\c{c}\~{a}o \'{e} autom\'{a}tica, n\~{a}o precisamos faz\^{e}%
+-la expl\'{\i}citamente.
+\end{itemize}
+
+\item Existem duas formas de fazer o loop WHILE:
+
+\begin{itemize}
+\item "Loop DO vazio", instru\c{c}\~{a}o an\'{a}loga ao GO TO no Fortran 77;
+
+\item Loop DO WHILE, que \'{e} uma forma an\'{a}loga ao loop WHILE padr\~{a}%
+o do Fortran 90/95;
+\end{itemize}
+
+\item Veja o Exemplo 1.
+\end{stepitemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\end{document}

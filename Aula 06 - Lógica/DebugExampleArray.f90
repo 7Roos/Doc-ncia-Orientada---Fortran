@@ -98,12 +98,12 @@ integer :: i, j
 !Solução
 !Definimos
 real, parameter :: degree = 180. / 3.1415
-integer, dimension(max_size) :: x, y
-real :: angle
+real, dimension(max_size) :: x, y
+!real :: angle
 
 x = [1, -1, -1, 1]
 y = [1, 1, -1, -1]
-write(*,*) (atan(y(i) / x(i)), i=1, max_size)
+write(*,*) (atan(y(i) / x(i))*degree, i=1, max_size)
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -130,11 +130,14 @@ write(*,*) (atan(y(i) / x(i)), i=1, max_size)
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 !Exemplo 11 - Passo num array
-!integer :: data1(256)
+!integer :: data1(10)
 !data1 = 0
-!data1(2:256:2) = 1000
+!data1(2:10:1) = 1000
 !print *, data1
-!write(*,*) (i, i=10, 1, -1)
+!write(*,10) (i, i=10, 1, -1)
+!write(*,20) (i, i=10, 1, -1)
+!10 format (12(I2))
+!20 format (10(I5))
 
 end program
 

@@ -4,8 +4,8 @@ real :: a, b, x, Erro_retangulo, Erro_trapezoidal, Erro_simpson1_3, Erro_simpson
 integer :: N, i
 real ::  retangulo, trapezoidal, simpson1_3, simpson3_8, bode
 
-a = .0              
-b = 2.55
+a = 1.5              
+b = 3.
 N = 128
 
 open(unit=9, file='IntRetangulo.dat')
@@ -36,9 +36,10 @@ implicit none
 real, intent(in) :: x 
 real ::g, v_t
 !fun = 2*cos(0.5 + 0.1*x)
-g = 9.81
-v_t = (5.*10.**(-7)*g/(1.85*10.**(-7)))
-fun = g*exp(-g*x/v_t)
+!g = 9.81
+!v_t = (5.*10.**(-7)*g/(1.85*10.**(-7)))
+!fun = g*exp(-g*x/v_t)
+fun = 3.*x**2
 end function
 
 real function funExact(a, b)
@@ -46,9 +47,10 @@ implicit none
 real, intent(in) :: a, b
 real ::g, v_t
 !funExact = (2./0.1)*(sin(0.5 + 0.1*b) - sin(0.5 + 0.1*a))
-g = 9.81
-v_t = (5.*10.**(-7)*g/(1.85*10.**(-7)))
-funExact = v_t*((exp(-g*b/v_t) - 1.) - (exp(-g*a/v_t) - 1))
+!g = 9.81
+!v_t = (5.*10.**(-7)*g/(1.85*10.**(-7)))
+!funExact = v_t*((exp(-g*b/v_t) - 1.) - (exp(-g*a/v_t) - 1))
+funexact = b**3 - a**3
 end function
 
 real function retangulo(a, b, istep)
@@ -123,7 +125,7 @@ end do
 sum = sum + fun(b)    !contribuição de X=2 (valor superior da integral)
 simpson1_3 = sum * h / 3.
 Erro_simpson1_3 = funExact(a, b) - simpson1_3
-write(20,*) N, ABS(Erro_simpson1_3)
+write(20,*) N, ABS(Erro_simpson1_3), simpson1_3
 end function
 
 real function simpson3_8(a, b, istep)
