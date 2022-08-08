@@ -38,6 +38,5 @@
 *.aux
 *.dvi
 *.log
-*.tex
 
 # End of https://mrkandreev.name/snippets/gitignore-generator/#Fortran
