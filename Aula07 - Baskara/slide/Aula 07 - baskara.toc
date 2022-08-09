@@ -1,0 +1,13 @@
+\babel@toc {brazilian}{}\relax 
+\beamer@sectionintoc {1}{Loops}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{Tipos de Loops}{3}{0}{1}
+\beamer@subsectionintoc {1}{2}{Alguns detalhes}{11}{0}{1}
+\beamer@sectionintoc {2}{Atributos do Fortran redundantes, obsoletos e deletados}{21}{0}{2}
+\beamer@sectionintoc {3}{Manipulando palavras}{37}{0}{3}
+\beamer@subsectionintoc {3}{1}{Fun\c {c}\~{o}es intr\'{\i }secas para caracteres}{44}{0}{3}
+\beamer@sectionintoc {4}{Aplica\c {c}\~{a}o - F\'{o}rmula de Baskara}{47}{0}{4}
+\beamer@subsectionintoc {4}{1}{Panorama geral}{47}{0}{4}
+\beamer@subsectionintoc {4}{2}{Construindo a necessidade de incluir os n\'{u}meros complexos}{54}{0}{4}
+\beamer@subsectionintoc {4}{3}{Definindo um n\'{u}mero complexo (rapidamente)}{62}{0}{4}
+\beamer@subsectionintoc {4}{4}{Vari\'{a}vel do tipo COMPLEX}{69}{0}{4}
+\beamer@sectionintoc {5}{Bibliografia}{75}{0}{5}

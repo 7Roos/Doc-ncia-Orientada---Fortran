@@ -1,0 +1,44 @@
+\documentclass[a4paper,12pt]{extarticle}
+\usepackage[top=2cm]{geometry}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage[brazilian]{babel}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{backcolour},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\ttfamily\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+
+\lstset{style=mystyle}
+\author{Matheus Roos}
+\title{8 formas de escrever um programa em Fortran}
+\date{\today}
+
+\begin{document}
+
+%\lstinputlisting[language=Fortran]{script_Latex.f90}
+\begin{lstlisting}[language=Fortran]
+CHARACTER(len=5) :: texto
+texto = "teste"
+\end{lstlisting}
+ 
+\end{document}

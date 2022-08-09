@@ -1,0 +1,613 @@
+
+\documentclass[xcolor=table]{beamer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amssymb}
+\usepackage{mathpazo}
+\usepackage{hyperref}
+\usepackage{multimedia}
+
+\usepackage[brazilian]{babel}
+\usepackage{graphicx}
+%Tabela estilizada
+\definecolor{Maroon}{cmyk}{0,0.87,0.68,0.32}
+\setlength{\arrayrulewidth}{0.9mm}
+\setlength{\tabcolsep}{9pt}
+\renewcommand{\arraystretch}{1.8}
+%Redimensionando a tabela, quando vazar
+\usepackage{adjustbox}
+
+%Hyperlink
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=black,
+	filecolor=magenta,      
+	urlcolor=magenta,
+	pdftitle={Aula 07},
+	pdfpagemode=FullScreen,
+}
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.50.0.2953}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%TCIDATA{Created=Wednesday, August 03, 2022 01:33:59}
+%TCIDATA{LastRevised=Sunday, August 07, 2022 17:35:00}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="Other Documents\SW\Slides - Beamer">}
+%TCIDATA{CSTFile=beamer.cst}
+
+\newenvironment{stepenumerate}{\begin{enumerate}[<+->]}{\end{enumerate}}
+\newenvironment{stepitemize}{\begin{itemize}[<+->]}{\end{itemize} }
+\newenvironment{stepenumeratewithalert}{\begin{enumerate}[<+-| alert@+>]}{\end{enumerate}}
+\newenvironment{stepitemizewithalert}{\begin{itemize}[<+-| alert@+>]}{\end{itemize} }
+\usetheme{Madrid}
+\input{tcilatex}
+\begin{document}
+
+\title[Loops, strings, complex]{Loops, strings e números complexos}
+\subtitle{Manipulação de loops, texto e fórmula de báskara}
+\author[Roos]{Matheus Roos}
+\institute[UFSM]{Universidade Federal de Santa Maria}
+\date{\today}
+\maketitle
+
+\begin{frame}
+\tableofcontents
+\end{frame}
+\section{Loops}
+
+\subsection{Tipos de Loops}
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\frametitle{Loops e l\'{o}gica}
+
+\begin{stepitemize}
+\item Em Fortran temos dois tipos de loops, DO (fa\c{c}a) e WHILE (enquanto).
+
+\item Caracter\'{\i}sticas do loop DO:
+
+\begin{itemize}
+\item Contagem expl\'{\i}cita, conhecemos o valor inicial e final que o loop
+deve percorrer.
+
+\item A itera\c{c}\~{a}o \'{e} autom\'{a}tica, n\~{a}o precisamos faz\^{e}%
+-la expl\'{\i}citamente.
+\end{itemize}
+
+\item Existem duas formas de fazer o loop WHILE:
+
+\begin{itemize}
+\item "Loop DO vazio", instru\c{c}\~{a}o an\'{a}loga ao GO TO do Fortran 77;
+
+\item Loop DO WHILE, que \'{e} uma forma an\'{a}loga ao loop WHILE padr\~{a}%
+o do Fortran 90/95;
+\end{itemize}
+
+\item Veja o Exemplo 1.
+\end{stepitemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\subsection{Alguns detalhes}
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\frametitle{Alguns detalhes}
+
+\begin{stepitemize}
+\item Identa\c{c}\~{a}o;
+
+\item Modifica\c{c}\~{a}o do \'{\i}ndice \textbf{i};
+
+\item O n\'{u}mero de itera\c{c}\~{o}es deve ser maior que zero:%
+\[
+\text{itera\c{c}\~{a}o}=\frac{\text{iend}-\text{istart}+\text{incre}}{\text{%
+incre}}>0 
+\]
+
+\item Loops regressivos;
+
+\item Valor de \textbf{i} quando o loop DO for interrompido. Veja o Exemplo
+2;
+
+\item Valor de \textbf{i} depois de fechar o loop. Veja o Exemplo 3;
+
+\begin{itemize}
+\item Recalculando 
+\[
+index=index+incre\text{,} 
+\]
+
+\item Verificando%
+\[
+index\times incre\leqslant iend\times incre\text{.} 
+\]
+\end{itemize}
+
+\item \textbf{Filtrando} valores de um loop com o atributo CYCLE. Veja o
+Exemplo 4;
+
+\item \textbf{Nomeando} loops. Veja o Exemplo 5;
+\end{stepitemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\section{Atributos do Fortran redundantes, obsoletos e deletados}
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\frametitle{Atributos Fortran redundantes, obsoletos e deletados}
+
+\begin{stepitemize}
+\item A instru\c{c}\~{a}o PAUSE:
+
+\begin{itemize}
+\item Quando o usu\'{a}rio precisa ler muitos valores na tela, seria necess%
+\'{a}rio pausar de tempos em tempos a execu\c{c}\~{a}o para que ele pudesse
+ler os dados;
+
+\item A instru\c{c}\~{a}o PAUSE fazia isso;
+
+\item Mas pode-se fazer o mesmo com instru\c{c}\~{o}es WRITE e READ, com bem
+mais flexibilidade;
+
+\item A instru\c{c}\~{a}o PAUSE foi exclu\'{\i}da do FORTRAN 95.
+\end{itemize}
+
+\item A declara\c{c}\~{a}o END isolada:
+
+\begin{itemize}
+\item Comum antes do FORTRAN 90;
+
+\item Novo padr\~{a}o: END PROGRAM, END FUNCTION,...
+\end{itemize}
+\end{stepitemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\begin{stepitemize}
+\item Declara\c{c}\~{a}o GO TO:
+
+\begin{itemize}
+\item Era utilizado para criar ramifica\c{c}\~{o}es, loops;
+
+\item \'{E} recomendado evitar o seu uso, pois seu uso em excesso torna-se
+um "spaghetti code";
+
+\item Podemos substitu\'{\i}-los, enquanto loop, por um DO vazio.
+
+\item Veja o Exemplo 10.
+\end{itemize}
+
+\item Declara\c{c}\~{a}o IF artim\'{e}tico:
+
+\begin{itemize}
+\item Origin\'{a}rio de 1954, nunca deve ser usado em programas modernos,
+foi tornado obsoleto no Fortran 95;
+
+\item Veja o Exemplo 6.
+\end{itemize}
+\end{stepitemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\section{Manipulando palavras}
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\frametitle{Manipulando palavras}
+
+\begin{stepitemize}
+\item Podemos trabalhar com caracteres ao atribuirmos a uma vari\'{a}vel o
+tipo \textbf{CHARACTER};
+
+\item Devemos tamb\'{e}m definir o tamanho, LEN, a \textbf{quantidade de
+caracteres};%
+
+\begin{figure}
+	\includegraphics{./figCharacLen}
+\end{figure}
+
+\item Podemos "fatiar" uma palavra. Veja o Exemplo 7;
+
+\item H\'{a} tamb\'{e}m a opera\c{c}\~{a}o de concatena\c{c}\~{a}o (juntar
+palavras). Veja o Exemplo 8;
+
+\begin{itemize}
+\item Seja word = string1 // string 2
+
+\item Devemos ter len(word) $\geqslant $ len(string) + len(string2)
+
+\item O que fazer com os espa\c{c}os em branco?
+\end{itemize}
+\end{stepitemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\subsection{Fun\c{c}\~{o}es intr\'{\i}secas para caracteres}
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\frametitle{Fun\c{c}\~{o}es intr\'{\i}secas para caracteres}
+
+Temos algumas fun\c{c}\~{o}es nativas do Fortran para manipular caracteres,
+tais como:
+\begin{table}
+	\begin{center}
+		\begin{adjustbox}{max width=1.\textwidth}
+			\begin{tabular}{llll}
+				\rowcolor{Maroon}
+				Fun\c{c}\~{a}o & Tipo do argumento & Tipo do resultado & Retorna \\ 
+				\hline
+				\rowcolor{Maroon!50}
+				ACHAR(num) & INTEGER & CHARACTER & Veja o Exemplo 9 \\
+				\rowcolor{Maroon!20} 
+				IACHAR(str) & CHARACTER & INTEGER & O contr\'{a}rio de ACHAR \\  
+				\rowcolor{Maroon!50}
+				LEN(str) & CHARACTER & INTEGER & O comprimento de str \\ 
+				\rowcolor{Maroon!20} 
+				LEN\_TRIM(str) & CHARACTER & INTEGER & " " Sem os espa\c{c}os em branco \\ 
+				\rowcolor{Maroon!50}
+				TRIM(str) & CHARACTER & CHARACTER & str sem espa\c{c}o em branco%
+			\end{tabular}
+		\end{adjustbox}
+	\end{center}
+\end{table}
+
+\begin{stepitemize}
+\item Veja o Exemplo 10 e 11;
+
+\item Podemos ent\~{a}o, automatizar a cria\c{c}\~{a}o de um arquivo de
+dados, veja os Exemplo 12;
+
+\item Para criar automatizar a cria\c{c}\~{a}o de v\'{a}rios arquivos de
+dados, primeiro criamos uma fun\c{c}\~{a}o que converte um n\'{u}mero
+inteiro numa string. Veja o Exemplo 13.
+\end{stepitemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\section{Aplica\c{c}\~{a}o - F\'{o}rmula de Baskara}
+
+\subsection{Panorama geral}
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\frametitle{Panorama geral}
+
+\begin{stepitemize}
+\item Podemos encontrar as ra\'{\i}zes \textbf{reais} de uma equa\c{c}\~{a}o
+de ordem 2, de formato%
+\[
+ax^{2}+bx+c=0\text{,} 
+\]
+
+\item atrav\'{e}s da famosa rela\c{c}\~{a}o de Baskara, tal que as ra\'{\i}%
+zes sejam:%
+\[
+x_{\pm }=\frac{-b\pm \sqrt{b^{2}-4\left( a\right) \left( c\right) }}{2a}=%
+\frac{-b\pm \Delta }{2a}. 
+\]
+
+\item Que conforme o resultado do discriminante $\Delta $, teremos os
+seguintes resultados:
+
+\begin{itemize}
+\item $\Delta >0$ \ \ \ Duas ra\'{\i}zes distintas;
+
+\item $\Delta =0$ \ \ \ Apenas uma raiz;
+
+\item $\Delta <0$ \ \ \ N\~{a}o possui raiz real.
+\end{itemize}
+
+\item Veja o fluxograma para construir um programa que calcula as ra\'{\i}%
+zes reais de uma equa\c{c}\~{a}o de 2%
+%TCIMACRO{\U{ba} }%
+%BeginExpansion
+${{}^o}$
+%EndExpansion
+grau.
+\end{stepitemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\subsection{Construindo a necessidade de incluir os n\'{u}meros complexos}
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\frametitle{Porque incluir os n\'{u}meros complexos}
+
+\begin{stepitemize}
+\item Supomos que estejamos nos prim\'{o}rdios da matem\'{a}tica,e s\'{o} h%
+\'{a} n\'{u}meros inteiros, maiores do que zero e que s\'{o} haja a opera%
+\c{c}\~{a}o de soma;%
+\[
+2+3=5\text{ \ ; \ \ }1+3=4\text{ \ \ \ }. 
+\]
+
+\item Ent\~{a}o inclu\'{\i}mos a opera\c{c}\~{a}o de subtra\c{c}\~{a}o;%
+\[
+5-2=3\text{ \ ; \ \ }7-2=5\text{ \ \ \ .} 
+\]
+
+\item Mas gostar\'{\i}amos de mais liberdade nos c\'{a}lculos, ent\~{a}o
+inclu\'{\i}mos os n\'{u}meros negativos e o zero;%
+\[
+2-5=-3\text{ \ \ ; \ \ \ }4-4=0\text{ \ \ .} 
+\]
+
+\item Ent\~{a}o come\c{c}amos a realizar divis\~{o}es;%
+\[
+\frac{4}{2}=2\text{ \ \ ; \ \ \ \ }\frac{9}{3}=3\text{ \ \ \ \ .} 
+\]
+\end{stepitemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\begin{frame}
+\begin{stepitemize}
+	\item Novamente, queremos expandir as possibilidades, ent\~{a}o inclu\'{\i}%
+	mos n\'{u}meros n\~{a}o inteiros%
+	\[
+	\frac{-5+2}{2}=-1,5\text{ \ \ \ ; \ \ \ \ }\frac{1}{3}=0,3333... 
+	\]
+	
+	\item E ent\~{a}o fazemos mais algumas opera\c{c}\~{o}es, tais como a raiz
+	quadrada de um n\'{u}mero;%
+	\[
+	\sqrt{4}=\pm 2\text{ \ \ \ ; \ \ \ \ }\sqrt{3}=1.\,\allowbreak 732\,1. 
+	\]
+	
+	\item Chega uma hora que precisaremos calcular uma raiz quadrada, tal como $%
+	\sqrt{-4}$,%
+	\begin{eqnarray*}
+		n^{2} &<&0 
+	\end{eqnarray*}
+\item Mas sabemos que
+\begin{eqnarray*}
+	\left( a\right) a &>&0 \\
+	\left( -1\right) \left( -1\right) &>&0\text{.}
+\end{eqnarray*}
+\end{stepitemize}
+\end{frame}
+\subsection{Definindo um n\'{u}mero complexo (rapidamente)}
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\frametitle{Definindo um n\'{u}mero complexo (rapidamente)}
+
+\begin{stepitemize}
+\item Come\c{c}amos definindo que exista um n\'{u}mero especial $i\,$, tal
+que,%
+\[
+i^{2}=-1\text{ \ \ \ \ \ \ \ \ \ \ }\rightarrow \text{ \ \ \ \ \ \ \ \ \ \ }%
+i=\sqrt{-1} 
+\]
+
+\item Dessa forma,%
+\[
+\sqrt{-4}=\sqrt{4\left( -1\right) }=\sqrt{\left( -1\right) }\sqrt{4}=2i\text{%
+.} 
+\]
+
+\item E \'{e} a partir daqui que come\c{c}amos a construir os n\'{u}meros
+complexos.
+
+\item Definimos que um n\'{u}mero complexo $c$, como composto de duas
+partes:%
+\[
+c=a+ib\text{.} 
+\]
+
+\item Definimos o quadrado de um n\'{u}mero complexo%
+\[
+c^{2}=\left( a+ib\right) ^{2}=a^{2}+2i\left( ab\right) +b^{2}. 
+\]
+
+\item e o m\'{o}dulo atrav\'{e}s do produto com seu complexo conjugado%
+\[
+cc^{\ast }=\left( a+ib\right) \left( a-ib\right) =a^{2}+b^{2}\text{.}
+\]
+
+\item Que nos fornece a magnitude de um n\'{u}mero complexo%
+\[
+\left\vert c\right\vert =\sqrt{a^{2}+b^{2}} 
+\]
+\end{stepitemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\subsection{Vari\'{a}vel do tipo COMPLEX}
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\frametitle{Vari\'{a}vel do tipo COMPLEX}
+
+\begin{stepitemize}
+\item Podemos declarar uma vari\'{a}vel do tipo COMPLEX, com
+c=a+ib\thinspace , tal que,%
+\[
+\text{COMPLEX :: c = (a, b).} 
+\]
+
+\item Al\'{e}m da possibilidade de vari\'{a}veis do tipo complexo, temos fun%
+\c{c}\~{o}es intr\'{\i}secas para trabalhar com n\'{u}meros complexos, tais
+como:
+
+\begin{itemize}
+\item CMPLX(a,b): converte em um n\'{u}mero real, tal que \textbf{a} \'{e} a
+parte real e \textbf{b} a parte imagin\'{a}ria. Veja o Exemplo 15;
+
+\item CABS(c): retorna o valor absoluto de um n\'{u}mero complexo. Veja o
+Exemplo 16;
+
+\item Podemos tomar apenas a parte real, ou apenas a parte imagin\'{a}ria.
+Veja o Exemplo 17;
+
+\item As outras fun\c{c}\~{o}es matem\'{a}ticas como sin(x), cos(x), log(x),
+etc, funcionar\~{a}o normalmente.
+\end{itemize}
+\end{stepitemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\section{Bibliografia}
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+
+\frametitle{Bibliografia}
+
+\begin{stepitemize}
+\item Introdu\c{c}\~{a}o ao Fortran:
+
+\begin{itemize}
+\item Fortran 95/2003 for Scientists and Engineers, Stephen K. Chapman
+(2007). 974p;
+
+\item Numerical Mathematics and Scientific Computation, Michael Metcalf
+(2004). 434p.
+\end{itemize}
+
+\item Aplica\c{c}\~{a}o de m\'{e}todos num\'{e}ricos utilizando Fortran:
+
+\begin{itemize}
+\item Computational Physics, Steven E. Koonin (1998). 653p;
+
+\item Computational Physics, Nicholas J. Giordano (1997). 432p;
+
+\item A First Course in Computational Physics, Paul L. DeVries (1994). 435p.
+\end{itemize}
+
+\item Python:
+
+\begin{itemize}
+\item Elementary Mechanics Using Python, Anders Malthe-Sorenssen (2015). 591p;
+
+\item A primer on Scientific Programing With Python, Hahns Peter Langtangen
+(2016). 942p;
+
+\item \href{https://www.coursera.org/learn/ciencia-computacao-python-conceitos}{Introdu\c{c}\~{a}o \`{a} Ci\^{e}ncia da Computa\c{c}\~{a}o com Python,
+	Coursera - USP};
+
+\item \href{https://www.edx.org/course/using-python-for-research}{Using Python for Research, EDX - Harvard};
+
+\item \href{https://www.edx.org/course/cs50s-introduction-to-programming-with-python}{CS50's Introduction to Programming with Python, EDX - Harvard}.
+\end{itemize}
+\end{stepitemize}
+
+%TCIMACRO{\TeXButton{Transition: Box Out}{\transboxout}}%
+%BeginExpansion
+\transboxout%
+%EndExpansion
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+\end{document}
